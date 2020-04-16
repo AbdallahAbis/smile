@@ -1,0 +1,27 @@
+//fonts
+$vigaFont: "Viga", sans-serif;
+$montserratFont: "Montserrat", sans-serif;
+
+//colors
+$red: #db0f10;
+$white: #ffffff;
+$black: #0a0e0f;
+$darkGrey: #353535;
+$lightGrey: #c4c4c4;
+$lightBlue: #00a2ce;
+$facebook: #3b5998;
+$google: #db4437;
+
+:export {
+  viga: $vigaFont;
+  montserrat: $montserratFont;
+
+  red: $red;
+  white: $white;
+  black: $black;
+  darkGrey: $darkGrey;
+  lightGrey: $lightGrey;
+  lightBlue: $lightBlue;
+  facebook: $facebook;
+  google: $google;
+}
