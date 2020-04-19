@@ -5,9 +5,6 @@
   "repository": "git@github.com:AbdallahAbis/smile.git",
   "author": "Abdallah Abis <Abis.Abdallah@gmail.com>",
   "license": "MIT",
-  "resolutions": {
-    "acorn": "^7.1.1"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -26,6 +23,9 @@
     "redux-saga": "^1.1.3",
     "reselect": "^4.0.0",
     "styled-components": "^5.1.0"
+  },
+    "resolutions": {
+    "acorn": "^7.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
