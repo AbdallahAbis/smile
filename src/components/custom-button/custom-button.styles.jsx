@@ -1,0 +1,36 @@
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+import variables from "../../assets/styles/variables.scss";
+
+export const Button = styled(Link)`
+  color: ${variables.white};
+  display: inline-block;
+  background: ${variables.red};
+  font-family: ${variables.viga};
+  font-size: 1.8rem;
+  align-self: start;
+  border: none;
+  border-radius: 3px;
+  padding: 1.2rem 2.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  &:hover {
+    background: ${variables.lightGrey};
+    color: ${variables.black};
+  }
+  &:focus{
+    outline: none;
+  }
+`;
+export const ButtonReversed = styled(Button)`
+  color: ${variables.black};
+
+  background: ${variables.lightGrey};
+
+  &:hover {
+    background: ${variables.red};
+    color: ${variables.white};
+  }
+`;
