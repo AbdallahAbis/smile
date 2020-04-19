@@ -19,7 +19,7 @@ const Item = ({ item }) => (
       <Title>{item.name}</Title>
       <Price>${item.price}</Price>
     </TextContainer>
-    <Button type="button">Add To Cart</Button>
+    <Button to='#' type="button">Add To Cart</Button>
   </ItemContainer>
 );
 

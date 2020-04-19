@@ -22,7 +22,9 @@ const HeroHomePage = () => {
         We are not just an online shop anymore, We took it a step further and
         now Wear and smile has also a local shop in Agadir, Morocco!
       </Paragraph>
-      <CustomButton type="button">Learn More!</CustomButton>
+      <CustomButton to="#" type="button">
+        Learn More!
+      </CustomButton>
     </Container>
   );
 };

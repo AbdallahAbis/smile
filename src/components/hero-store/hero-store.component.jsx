@@ -2,15 +2,11 @@ import React from "react";
 
 import BackgroundImage from "../../assets/hero/hero-red.png";
 
-import {
-  Container,
-  Title,
-  Text,
-} from "./hero-store.styles";
+import { Container, Title, Text } from "./hero-store.styles";
 
-const HeroStore = () => {
+const HeroStore = ({ ...props }) => {
   return (
-    <Container size='90vh' background={BackgroundImage}>
+    <Container {...props} background={BackgroundImage}>
       <Title>
         We Offer 15 Days <br /> Money Back <br /> Guaranteed!
       </Title>

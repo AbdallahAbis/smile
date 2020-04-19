@@ -11,7 +11,7 @@ export const ImageContainer = styled.div`
   height: 42rem;
   width: 24rem;
   margin: 0 auto;
-  &:hover ~ button {
+  &:hover ~ a {
     opacity: 1;
   }
 `;
@@ -21,6 +21,7 @@ export const Image = styled.img`
   background-size: cover;
   background-position: center;
   margin: 0 auto;
+  cursor: pointer;
 `;
 export const TextContainer = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ export const Price = styled.p`
 export const Button = styled(CustomButton)`
   font-family: ${variables.montserrat};
   position: absolute;
+  width: 80%;
   left: 50%;
   bottom: 7%;
   transform: translate(-50%, -50%);
@@ -43,6 +45,6 @@ export const Button = styled(CustomButton)`
   transition: all 0.2s;
   &:hover {
     opacity: 1;
-    display: inline-block;
+    // display: inline-block;
   }
 `;

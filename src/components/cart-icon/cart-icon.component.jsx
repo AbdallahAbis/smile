@@ -3,7 +3,7 @@ import React from "react";
 import { Cart, CartContainer, AddedItems } from "./cart-icon.styles";
 
 const CartIcon = () => (
-  <CartContainer>
+  <CartContainer to="#">
     <Cart />
     <AddedItems>0</AddedItems>
   </CartContainer>

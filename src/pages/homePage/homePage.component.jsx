@@ -1,23 +1,27 @@
 import React from "react";
 
-import HeroHomePage from "../../components/hero-homePage/hero-homePage.component";
-import HeroStore from "../../components/hero-store/hero-store.component";
-import FeaturedSection from "../../components/featured-section/featured-section.component";
-import CategoriesSection from "../../components/categories-section/categories-section.component";
-import Footer from "../../components/footer/footer.component";
+import { FEATURED } from "../../redux/shop-data/shop-data";
 
-import { Button } from "./homePage.styles";
+import HeroHomePage from "../../components/hero-homePage/hero-homePage.component";
+import ProductsOverview from "../../components/products-overview/products-overview.component";
+import HeroStore from "../../components/hero-store/hero-store.component";
+import CategoriesSection from "../../components/categories-section/categories-section.component";
+
+import { Container, ButtonContainer, Button } from "./homePage.styles";
 
 const HomePage = () => {
   return (
-    <React.Fragment>
+    <Container>
       <HeroHomePage />
-      <FeaturedSection />
+      <ProductsOverview title="Featured Products" items={FEATURED} />
       <CategoriesSection />
-      <HeroStore />
-      <Button>Check All Products</Button>
-      <Footer />
-    </React.Fragment>
+      <HeroStore size="90vh" position="center" />
+      <ButtonContainer>
+        <Button to="/store" >
+          Check All Products
+        </Button>
+      </ButtonContainer>
+    </Container>
   );
 };
 

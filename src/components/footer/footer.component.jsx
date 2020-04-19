@@ -25,16 +25,14 @@ import {
 } from "./footer.styles";
 
 const Footer = () => {
-  console.log(visa);
-
   return (
     <Container>
       <Categories>
         <Title>CATEGORIES</Title>
-        <Link>Women</Link>
-        <Link>Men</Link>
-        <Link>Girls</Link>
-        <Link>Boys</Link>
+        <Link to="/store/women">Women</Link>
+        <Link to="/store/men">Men</Link>
+        <Link to="/store/girls">Girls</Link>
+        <Link to="/store/boys">Boys</Link>
       </Categories>
       <LogoContainer color="white">
         <Logo />
@@ -50,22 +48,40 @@ const Footer = () => {
       <Follow>
         <Title>FOLLOW US</Title>
         <IconsContainer>
-          <FollowIcons src={facebook} alt="social" />
-          <FollowIcons src={linkedin} alt="social" />
-          <FollowIcons src={twitter} alt="social" />
+          <a
+            href="https://www.facebook.com/abis.abdellah"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FollowIcons src={facebook} alt="social" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/abdallah-abis/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FollowIcons src={linkedin} alt="social" />
+          </a>
+          <a
+            href="https://twitter.com/Dev_abis"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FollowIcons src={twitter} alt="social" />
+          </a>
         </IconsContainer>
       </Follow>
 
       <About>
         <Title>ALL ABOUT US</Title>
-        <Link>Contact Us</Link>
-        <Link>About Us</Link>
-        <Link>Our Location</Link>
-        <Link>FAQ</Link>
+        <Link to="/contact">Contact Us</Link>
+        <Link to="/contact">About Us</Link>
+        <Link to="/contact">Our Location</Link>
+        <Link to="/contact">FAQ</Link>
       </About>
       <Rights>
         Designed & Developed by{" "}
-        <Link>
+        <Link to="https://twitter.com/Dev_abis">
           <strong>Abdallah Abis</strong>
         </Link>
       </Rights>

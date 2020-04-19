@@ -625,4 +625,79 @@ export const COVER_IMAGES = [
   },
 ];
 
+export const NEW_PRODUCTS = [
+  {
+    id: 1,
+    name: "Black Crop",
+    imageUrl: "https://i.ibb.co/Hq5mX7V/black-crop.jpg",
+    price: 25,
+  },
+  {
+    id: 2,
+    name: "Black Jacket",
+    imageUrl: "https://i.ibb.co/wKB9GZx/black-jacket.jpg",
+    price: 25,
+  },
+  {
+    id: 3,
+    name: "Black Outfit",
+    imageUrl: "https://i.ibb.co/Pr8Bpyk/black-outfit.jpg",
+    price: 25,
+  },
+  {
+    id: 4,
+    name: "Black Shirt",
+    imageUrl: "https://i.ibb.co/712YckD/black-shirt.jpg",
+    price: 25,
+  },
+  {
+    id: 5,
+    name: "Black T-shirt",
+    imageUrl: "https://i.ibb.co/VpnpYTt/black-t-shirt.jpg",
+    price: 25,
+  },
+  {
+    id: 6,
+    name: "Blue Jeans Shirt",
+    imageUrl: "https://i.ibb.co/MSXSmyn/blue-jeans-shirt.jpg",
+    price: 25,
+  },
+  {
+    id: 7,
+    name: "Blue Jeans",
+    imageUrl: "https://i.ibb.co/CKMffLk/blue-jeans.jpg",
+    price: 25,
+  },
+  {
+    id: 8,
+    name: "Brown Coat",
+    imageUrl: "https://i.ibb.co/nCj5wzY/brown-coat.jpg",
+    price: 25,
+  },
+  {
+    id: 9,
+    name: "Brown Jacket",
+    imageUrl: "https://i.ibb.co/CKwn7H6/brown-jacket.jpg",
+    price: 25,
+  },
+  {
+    id: 10,
+    name: "Long Gray Hoodie",
+    imageUrl: "https://i.ibb.co/pdHbxV6/long-gray-hoodie.jpg",
+    price: 25,
+  },
+  {
+    id: 11,
+    name: "White Shirt",
+    imageUrl: "https://i.ibb.co/q1VrXwH/white-shirt.jpg",
+    price: 25,
+  },
+  {
+    id: 12,
+    name: "White Sweater",
+    imageUrl: "https://i.ibb.co/fn4rdc5/white-sweater.jpg",
+    price: 25,
+  },
+];
+
 export default SHOP_DATA;

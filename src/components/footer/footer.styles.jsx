@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import { Link as ReactLink } from "react-router-dom";
 import variables from "../../assets/styles/variables.scss";
 
 const iconsContainer = css`
@@ -20,10 +20,12 @@ export const Title = styled.div`
   font-family: ${variables.viga};
   margin-bottom: 2rem;
 `;
-export const Link = styled.p`
+export const Link = styled(ReactLink)`
   font-family: ${variables.montserrat};
   cursor: pointer;
   display: inline-block;
+  color: ${variables.white};
+  text-decoration: none;
   &:not(:last-child) {
     margin-bottom: 0.5rem;
   }

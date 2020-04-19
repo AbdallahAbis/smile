@@ -16,7 +16,7 @@ const Categories = ({ items }) => {
           <ImageContainer>
             <Image src={item.imageUrl} alt={item.name} />
           </ImageContainer>
-          <Button>{item.name}</Button>
+          <Button to={`/store/${item.name.toLowerCase()}`}>{item.name}</Button>
         </ItemContainer>
       ))}
     </Container>
