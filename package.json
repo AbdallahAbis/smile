@@ -5,6 +5,9 @@
   "repository": "git@github.com:AbdallahAbis/smile.git",
   "author": "Abdallah Abis <Abis.Abdallah@gmail.com>",
   "license": "MIT",
+  "resolutions": {
+    "acorn": "^7.1.1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
