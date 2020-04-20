@@ -20,7 +20,7 @@ export const Button = styled(Link)`
     background: ${variables.lightGrey};
     color: ${variables.black};
   }
-  &:focus{
+  &:focus {
     outline: none;
   }
 `;

@@ -3,13 +3,12 @@ import styled from "styled-components";
 import variables from "../../assets/styles/variables.scss";
 
 export const Background = styled.div`
-  height: 115vh;
+  height: 100vh;
   width: 100%;
   background-image: url(${({ background }) => background});
   background-repeat;
   background-position: top;
   background-size: cover;
-  margin-top: -9rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -17,7 +16,6 @@ export const Background = styled.div`
 `;
 export const Container = styled.div`
   height: calc(100vh - 8rem);
-  // width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +29,6 @@ export const Title = styled.h1`
   display: block;
 `;
 export const Slogan = styled.h3`
-  // margin-top: -0.5rem;
   font-size: 3.5rem;
   font-weight: 300;
   color: ${variables.red};

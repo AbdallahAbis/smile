@@ -6,6 +6,7 @@ import Categories from "../categories-preview/categories-preview.component";
 import { Container, MainTitle } from "./products-overview.styles";
 
 const ProductsOverview = ({ title, type, ...props }) => {
+
   return (
     <Container>
       {title.toLowerCase() !== "categories" ? (

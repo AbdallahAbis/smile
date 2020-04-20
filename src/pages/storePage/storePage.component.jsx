@@ -1,16 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import { NEW_PRODUCTS } from "../../redux/shop-data/shop-data";
+import { selectFeaturedProducts } from "../../redux/shop/shop.selectors";
 
 import HeroStore from "../../components/hero-store/hero-store.component";
 import CategoriesSection from "../../components/categories-section/categories-section.component";
 import ProductsOverview from "../../components/products-overview/products-overview.component";
 
-const StorePage = () => (
+const StorePage = ({ newProducts }) => (
   <React.Fragment>
     <HeroStore size="100vh" position="top" />
     <CategoriesSection />
-  <ProductsOverview title="New Products" items={NEW_PRODUCTS} />
+    <ProductsOverview title="New Products" items={newProducts} />
   </React.Fragment>
 );
-export default StorePage;
+
+const mapStateToProps = createStructuredSelector({
+  newProducts: selectFeaturedProducts,
+});
+export default connect(mapStateToProps)(StorePage);

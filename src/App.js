@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import ScrollToTop from "./utils/scrollTop";
 
@@ -18,27 +18,21 @@ import "./App.scss";
 import LoginPage from "./pages/loginPage/loginPage.component";
 
 const App = () => (
-  <Router>
-    <React.Fragment>
-      <ScrollToTop />
-      <Route path="/" component={Header} />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route
-          exact
-          path="/store/:categoryName/:name"
-          component={ProductPage}
-        />
-        <Route exact path="/store" component={StorePage} />
-        <Route exact path="/log-in" component={LoginPage} />
-        <Route exact path="/sign-up" component={SignUpPage} />
-        <Route exact path="/contact" component={ContactUsPage} />
-        <Route exact path="/checkout" component={CheckoutPage} />
-        <Route exact path="/store/:categoryName" component={CategoryPage} />
-      </Switch>
-      <Footer />
-    </React.Fragment>
-  </Router>
+  <React.Fragment>
+    <ScrollToTop />
+    <Route path="/" component={Header} />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/store/:categoryName/:name" component={ProductPage} />
+      <Route exact path="/store" component={StorePage} />
+      <Route exact path="/log-in" component={LoginPage} />
+      <Route exact path="/sign-up" component={SignUpPage} />
+      <Route exact path="/contact" component={ContactUsPage} />
+      <Route exact path="/checkout" component={CheckoutPage} />
+      <Route exact path="/store/:categoryName" component={CategoryPage} />
+    </Switch>
+    <Footer />
+  </React.Fragment>
 );
 
 export default App;

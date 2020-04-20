@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+import variables from "../../assets/styles/variables.scss";
+
 export const Container = styled.div`
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
-  width: calc(100vw - 20rem);
-  height: 8rem;
+  height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${({ color }) => color};
-  margin: 0 10rem;
+  background: ${({ background }) => variables[background]};
+  z-index: 5000;
+  padding: 0 10rem;
 `;
 export const OptionsContainer = styled.div`
   width: 40%;

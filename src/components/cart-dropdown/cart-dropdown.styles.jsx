@@ -12,10 +12,12 @@ export const Container = styled.div`
   position: absolute;
   top: 7rem;
   right: 8rem;
+  color: ${variables.black};
   background: ${variables.white};
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.55);
   text-align: center;
   overflow: hidden;
+  z-index: 30000;
 `;
 export const ItemsContainer = styled.div`
   overflow: scroll;
@@ -40,7 +42,7 @@ export const ItemContainer = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 2fr 3fr 1fr;
+  grid-template-columns: 7rem 3fr 1fr;
   height: 10rem;
   text-align: left;
   padding-right: 2rem;
@@ -68,6 +70,7 @@ export const Name = styled.p`
   align-self: end;
   padding-bottom: 1rem;
 `;
+
 export const Quantity = styled.p`
   grid-column: 2;
   align-self: start;
@@ -90,11 +93,16 @@ export const Price = styled.p`
   padding-top: 1rem;
   margin: 0;
 `;
+export const Empty = styled(Price)`
+  margin-right: 1.5rem;
+`;
 export const Button = styled(CustomButton)`
+  width: 75%;
   position: absolute;
   left: 50%;
   bottom: 1rem;
   transform: translateX(-50%);
   font-size: 1.7rem;
+  padding: 1.3rem 1.7rem;
   font-family: ${variables.montserrat};
 `;
