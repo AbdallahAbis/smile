@@ -15,7 +15,6 @@ const Quantity = ({ number, item, addItem, removeItem, ...props }) => {
   return (
     <Container {...props}>
       <Button
-        to="#"
         className={classNames}
         reversed="true"
         onClick={() => removeItem(item)}
@@ -23,16 +22,16 @@ const Quantity = ({ number, item, addItem, removeItem, ...props }) => {
         -
       </Button>
       <Number>{number}</Number>
-      <Button to="#" disabled reversed="true" onClick={() => addItem(item)}>
+      <Button reversed="true" onClick={() => addItem(item)}>
         +
       </Button>
     </Container>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-  removeItem: (item) => dispatch(removeItem(item)),
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item)),
+  removeItem: item => dispatch(removeItem(item))
 });
 
 export default connect(null, mapDispatchToProps)(Quantity);

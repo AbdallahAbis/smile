@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { Link } from "react-router-dom";
 
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 
 import {
   clearItemFromCart,
-  toggleCartHidden,
+  toggleCartHidden
 } from "../../redux/cart/cart.actions";
 
 import {
@@ -19,7 +20,7 @@ import {
   Quantity,
   RemoveIcon,
   Button,
-  Empty,
+  Empty
 } from "./cart-dropdown.styles";
 
 const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
@@ -30,7 +31,7 @@ const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
       <ItemsContainer>
         {cartItems.length > 0 ? (
           <React.Fragment>
-            {cartItems.map((item) => (
+            {cartItems.map(item => (
               <ItemContainer key={item.id}>
                 <Image src={item.imageUrl} alt={item.name} />
                 <Name>{item.name}</Name>
@@ -47,7 +48,7 @@ const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
           <Empty>Your cart is empty!</Empty>
         )}
       </ItemsContainer>
-      <Button to="/checkout" onClick={toggleHidden}>
+      <Button link="true" to="/checkout" onClick={toggleHidden}>
         GO TO CHECKOUT
       </Button>
     </Container>
@@ -55,11 +56,11 @@ const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
+  cartItems: selectCartItems
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  clearItem: (item) => dispatch(clearItemFromCart(item)),
-  toggleHidden: () => dispatch(toggleCartHidden()),
+const mapDispatchToProps = dispatch => ({
+  clearItem: item => dispatch(clearItemFromCart(item)),
+  toggleHidden: () => dispatch(toggleCartHidden())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);

@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-
 import variables from "../../assets/styles/variables.scss";
 
-export const Button = styled(Link)`
+const buttonStyles = css`
   color: ${variables.white};
   display: inline-block;
   background: ${variables.red};
@@ -23,6 +22,13 @@ export const Button = styled(Link)`
   &:focus {
     outline: none;
   }
+`;
+
+export const Button = styled.button`
+  ${buttonStyles}
+`;
+export const LinkButton = styled(Link)`
+  ${buttonStyles}
 `;
 export const ButtonReversed = styled(Button)`
   color: ${variables.black};

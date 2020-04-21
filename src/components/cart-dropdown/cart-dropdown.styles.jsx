@@ -4,6 +4,7 @@ import variables from "../../assets/styles/variables.scss";
 
 import CustomButton from "../custom-button/custom-button.component";
 
+
 export const Container = styled.div`
   width: 20vw;
   height: 45rem;

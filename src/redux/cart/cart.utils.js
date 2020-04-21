@@ -1,8 +1,9 @@
 export const addItemToCart = (itemsInCart, itemToAdd) => {
-  const itemExistsInCart = itemsInCart.find((item) => item.id === itemToAdd.id);
+  const itemExistsInCart = itemsInCart.find(item => item.id === itemToAdd.id);
+  console.log('ko');
 
   if (itemExistsInCart) {
-    return itemsInCart.map((item) =>
+    return itemsInCart.map(item =>
       item.id === itemToAdd.id
         ? { ...itemToAdd, quantity: item.quantity + 1 }
         : item
@@ -14,12 +15,12 @@ export const addItemToCart = (itemsInCart, itemToAdd) => {
 
 export const removeItemFromCart = (itemsInCart, itemToRemove) => {
   const itemExistsInCart = itemsInCart.find(
-    (item) => item.id === itemToRemove.id
+    item => item.id === itemToRemove.id
   );
   if (itemExistsInCart.quantity === 1) {
-    return itemsInCart.filter((item) => item.id !== itemToRemove.id);
+    return itemsInCart.filter(item => item.id !== itemToRemove.id);
   }
-  return itemsInCart.map((item) =>
+  return itemsInCart.map(item =>
     item.id === itemToRemove.id
       ? { ...item, quantity: item.quantity - 1 }
       : item
@@ -27,11 +28,9 @@ export const removeItemFromCart = (itemsInCart, itemToRemove) => {
 };
 
 export const ClearItem = (itemsInCart, itemToClear) => {
-  const itemExistsInCart = itemsInCart.find(
-    (item) => item.id === itemToClear.id
-  );
+  const itemExistsInCart = itemsInCart.find(item => item.id === itemToClear.id);
 
   if (itemExistsInCart) {
-    return itemsInCart.filter((item) => item.id !== itemToClear.id);
+    return itemsInCart.filter(item => item.id !== itemToClear.id);
   }
 };

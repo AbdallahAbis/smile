@@ -19,7 +19,7 @@ const HomePage = ({ featured }) => {
       <CategoriesSection />
       <HeroStore size="90vh" position="center" />
       <ButtonContainer>
-        <Button to="/store">Check All Products</Button>
+        <Button link='true' to="/store">Check All Products</Button>
       </ButtonContainer>
     </Container>
   );

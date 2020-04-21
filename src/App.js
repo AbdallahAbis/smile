@@ -1,7 +1,12 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import ScrollToTop from "./utils/scrollTop";
+
+import { checkUserSession } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import Header from "./components/header/header.component";
 import Footer from "./components/footer/footer.component";
@@ -17,22 +22,47 @@ import CategoryPage from "./pages/categoryPage/categoryPage.component";
 import "./App.scss";
 import LoginPage from "./pages/loginPage/loginPage.component";
 
-const App = () => (
-  <React.Fragment>
-    <ScrollToTop />
-    <Route path="/" component={Header} />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/store/:categoryName/:name" component={ProductPage} />
-      <Route exact path="/store" component={StorePage} />
-      <Route exact path="/log-in" component={LoginPage} />
-      <Route exact path="/sign-up" component={SignUpPage} />
-      <Route exact path="/contact" component={ContactUsPage} />
-      <Route exact path="/checkout" component={CheckoutPage} />
-      <Route exact path="/store/:categoryName" component={CategoryPage} />
-    </Switch>
-    <Footer />
-  </React.Fragment>
-);
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
+    checkUserSession();
+  }, [checkUserSession]);
+  return (
+    <React.Fragment>
+      <ScrollToTop />
+      <Route path="/" component={Header} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/store/:categoryName/:name"
+          component={ProductPage}
+        />
+        <Route exact path="/store" component={StorePage} />
+        <Route
+          exact
+          path="/log-in"
+          render={() => (currentUser ? <Redirect to="/" /> : <LoginPage />)}
+        />
+        <Route
+          exact
+          path="/sign-up"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
+        />
+        <Route exact path="/contact" component={ContactUsPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route exact path="/store/:categoryName" component={CategoryPage} />
+      </Switch>
+      <Footer />
+    </React.Fragment>
+  );
+};
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

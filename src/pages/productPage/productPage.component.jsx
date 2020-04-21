@@ -14,7 +14,7 @@ import {
   Button,
   DescriptionContainer,
   DescriptionParagraph,
-  RelatedTitle,
+  RelatedTitle
 } from "./productPage.styles";
 
 const ProductPage = ({ featured }) => {
@@ -44,16 +44,18 @@ const ProductPage = ({ featured }) => {
         </DescriptionParagraph>
       </DescriptionContainer>
       <RelatedTitle>RELATED PRODUCTS</RelatedTitle>
-      <ProductsPreview items={featured.filter((item) => item.id <= 4)} />
+      <ProductsPreview items={featured.filter(item => item.id <= 4)} />
       <ButtonContainer>
-        <Button to="/store">Check All Products</Button>
+        <Button link="true" to="/store">
+          Check All Products
+        </Button>
       </ButtonContainer>
     </Container>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  featured: selectFeaturedProducts,
+  featured: selectFeaturedProducts
 });
 
 export default connect(mapStateToProps)(ProductPage);
