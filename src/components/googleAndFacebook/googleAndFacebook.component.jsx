@@ -1,23 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { googleSignInStart } from "../../redux/user/user.actions";
+import {
+  googleSignInStart,
+  facebookSignInStart
+} from "../../redux/user/user.actions";
 
-import { Social } from "./googleAndFacebook.styles";
+import {
+  FacebookAndGoogleContainer,
+  Social,
+  Paragraph
+} from "./googleAndFacebook.styles";
 
-const GoogleAndFacebook = ({ googleSignInStart }) => {
+const GoogleAndFacebook = ({ googleSignInStart, facebookSignInStart }) => {
   return (
-    <div>
-      <Social type="facebook">CONTINUE WITH FACEBOOK</Social>
+    <FacebookAndGoogleContainer>
+      <Paragraph>Continue with your Facebook or Google!</Paragraph>
+      <Social type="facebook" onClick={facebookSignInStart}>
+        CONTINUE WITH FACEBOOK
+      </Social>
       <Social type="google" onClick={googleSignInStart}>
         CONTINUE WITH GOOGLE
       </Social>
-    </div>
+    </FacebookAndGoogleContainer>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
-  googleSignInStart: () => dispatch(googleSignInStart())
+  googleSignInStart: () => dispatch(googleSignInStart()),
+  facebookSignInStart: () => dispatch(facebookSignInStart())
 });
 
 export default connect(null, mapDispatchToProps)(GoogleAndFacebook);

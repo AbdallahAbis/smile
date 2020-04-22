@@ -4,6 +4,9 @@ import variables from "../../assets/styles/variables.scss";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  &:not(:first-child){
+    margin-top: 5rem;
+  }
 `;
 
 export const InputField = styled.input`

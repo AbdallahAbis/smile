@@ -25,7 +25,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: null,
-        errorMessage: action.payload
+        errorMessage: action.payload,
+        
       };
 
     default:
