@@ -12,7 +12,7 @@ export const EmailAndPasswordContainer = styled.div`
   width: 50%;
 `;
 export const Paragraph = styled.p`
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 `;
 export const InputField = styled(Input)`
   width: 70%;

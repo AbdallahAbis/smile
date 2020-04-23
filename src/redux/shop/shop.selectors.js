@@ -1,23 +1,21 @@
 import { createSelector } from "reselect";
 
-const selectShop = (state) => state.shop;
+export const selectShop = state => state.shop.products;
 
 export const selectAllProducts = createSelector(
   [selectShop],
-  (shop) => shop.products.allProducts
+  products => products.allProducts
+);
+export const selectAllProductsAsArray = createSelector(
+  [selectAllProducts],
+  products => (products ? Object.keys(products).map(key => products[key]) : [])
 );
 
 export const selectFeaturedProducts = createSelector(
   [selectShop],
-  (shop) => shop.products.featuredProducts
+  products => products.featuredProducts
 );
 
-export const selectCategories = createSelector(
-  [selectShop],
-  (shop) => shop.products.categories
-);
-
-export const selectNewProducts = createSelector(
-  [selectShop],
-  (shop) => shop.products.newProducts
+export const selectNewProducts = createSelector([selectShop], products =>
+  products.newProducts
 );

@@ -49,7 +49,13 @@ const LogIn = ({ emailSignInStart, ErrorMessage }) => {
           label="Password:"
           type="password"
           name="password"
-          reference={register({ required: "Password is required!" })}
+          reference={register({
+            required: "Password is required!",
+            minLength: {
+              value: 8,
+              message: "Password should at least contain 8 characters"
+            }
+          })}
           autoComplete="current-password"
         />
         {errors.password && <FormError message={errors.password.message} />}

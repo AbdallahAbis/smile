@@ -2,19 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCategories } from "../../redux/shop/shop.selectors";
+import {
+  selectAllProductsAsArray
+} from "../../redux/shop/shop.selectors";
 
 import ProductsOverview from "../products-overview/products-overview.component";
 
-const CategoriesSection = ({ categories }) => {
-
+const CategoriesSection = ({ products }) => {
   return (
-    <ProductsOverview type="categories" title="Categories" items={categories} />
+    <ProductsOverview type="categories" title="Categories" items={products} />
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  categories: selectCategories,
+  products: selectAllProductsAsArray
 });
 
 export default connect(mapStateToProps)(CategoriesSection);

@@ -7,7 +7,6 @@ import Input from "../../components/input/input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 
 export const Container = styled.div`
-  // height: calc(100vh - 8rem);
   margin: 8rem 10rem 0 10rem;
   padding-top: 6vw;
   display: flex;

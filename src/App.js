@@ -8,6 +8,9 @@ import ScrollToTop from "./utils/scrollTop";
 import { checkUserSession } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
+import { fetchCollectionsStart } from "./redux/shop/shop.actions";
+import { selectAllProducts } from "./redux/shop/shop.selectors";
+
 import Header from "./components/header/header.component";
 import Footer from "./components/footer/footer.component";
 
@@ -18,15 +21,23 @@ import ContactUsPage from "./pages/contactUsPage/contactUsPage.component";
 import CheckoutPage from "./pages/checkoutPage/checkoutPage.component";
 import ProductPage from "./pages/productPage/productPage.component";
 import CategoryPage from "./pages/categoryPage/categoryPage.component";
-
-import "./App.scss";
 import LoginPage from "./pages/loginPage/loginPage.component";
 
-const App = ({ checkUserSession, currentUser }) => {
+import "./App.scss";
+
+const App = ({
+  checkUserSession,
+  currentUser,
+  fetchCollectionsStart,
+  selectAllProducts
+}) => {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
-  return (
+  useEffect(() => {
+  fetchCollectionsStart();
+  }, [fetchCollectionsStart]);
+  return !selectAllProducts ? null : (
     <React.Fragment>
       <ScrollToTop />
       <Route path="/" component={Header} />
@@ -58,11 +69,13 @@ const App = ({ checkUserSession, currentUser }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  selectAllProducts: selectAllProducts
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

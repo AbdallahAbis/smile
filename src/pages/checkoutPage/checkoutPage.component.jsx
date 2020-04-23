@@ -6,6 +6,7 @@ import {
   selectCartItems,
   selectCartTotalPrice
 } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import CheckoutTable from "../../components/checkout-table/checkout-table.component";
 import CheckoutPreview from "../../components/checkout-preview/checkout-preview.component";
@@ -20,7 +21,7 @@ import {
   Empty
 } from "./checkoutPage.styles";
 
-const CheckoutPage = ({ cartItems, totalPrice }) => {
+const CheckoutPage = ({ cartItems, totalPrice, CurrentUser }) => {
   let classNames = "";
   if (cartItems.length === 0) {
     classNames = "disabled";
@@ -42,9 +43,13 @@ const CheckoutPage = ({ cartItems, totalPrice }) => {
             <TotalText>TOTAL</TotalText>
             <TotalNumber>${totalPrice}</TotalNumber>
           </TotalContainer>
-          <PayButton className={classNames} to="#">
-            PAY NOW
-          </PayButton>
+          {CurrentUser ? (
+            <PayButton className={classNames}>PAY NOW</PayButton>
+          ) : (
+            <PayButton link className={classNames} to="/sign-up">
+              PAY NOW
+            </PayButton>
+          )}
         </TotalAndPayContainer>
       </Container>
     </React.Fragment>
@@ -53,7 +58,8 @@ const CheckoutPage = ({ cartItems, totalPrice }) => {
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
-  totalPrice: selectCartTotalPrice
+  totalPrice: selectCartTotalPrice,
+  CurrentUser: selectCurrentUser
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

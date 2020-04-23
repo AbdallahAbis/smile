@@ -19,14 +19,16 @@ const HomePage = ({ featured }) => {
       <CategoriesSection />
       <HeroStore size="90vh" position="center" />
       <ButtonContainer>
-        <Button link='true' to="/store">Check All Products</Button>
+        <Button link="true" to="/store">
+          Check All Products
+        </Button>
       </ButtonContainer>
     </Container>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  featured: selectFeaturedProducts,
+  featured: selectFeaturedProducts
 });
 
 export default connect(mapStateToProps)(HomePage);

@@ -62,7 +62,7 @@ const SignUp = ({ signUpStart, ErrorMessage }) => {
             required: "Password is Required!",
             minLength: {
               value: 8,
-              message: "Password should at least 8 characters"
+              message: "Password should at least contain 8 characters"
             }
           })}
           autoComplete="new-password"

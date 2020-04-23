@@ -21,6 +21,6 @@ const CategoryPage = ({ match: { params }, allProducts }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  allProducts: selectAllProducts,
+  allProducts: selectAllProducts
 });
 export default connect(mapStateToProps)(CategoryPage);

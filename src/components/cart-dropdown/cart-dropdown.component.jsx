@@ -23,8 +23,6 @@ import {
 } from "./cart-dropdown.styles";
 
 const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
-  console.log(cartItems.length);
-
   return (
     <Container>
       <ItemsContainer>

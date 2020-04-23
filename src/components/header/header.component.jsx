@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectToggleHidden } from "../../redux/cart/cart.selectors";
+import {
+  selectToggleHidden,
+  selectCartItems
+} from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { signOutStart } from "../../redux/user/user.actions";
@@ -14,7 +17,13 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 import { Container, OptionsContainer, Option } from "./header.styles";
 
-const Header = ({ location, isHidden, currentUser, signOutStart }) => {
+const Header = ({
+  location,
+  isHidden,
+  currentUser,
+  signOutStart,
+  cartItems
+}) => {
   let color = "";
   let background = "";
 
@@ -39,7 +48,11 @@ const Header = ({ location, isHidden, currentUser, signOutStart }) => {
           {!currentUser ? (
             <Option to="/log-in">Log in</Option>
           ) : (
-            <Option to="/" onClick={signOutStart}>
+            <Option
+              exact
+              to="/"
+              onClick={() => signOutStart(currentUser, cartItems)}
+            >
               Sign out
             </Option>
           )}
@@ -54,11 +67,13 @@ const Header = ({ location, isHidden, currentUser, signOutStart }) => {
 
 const mapStateToProps = createStructuredSelector({
   isHidden: selectToggleHidden,
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  cartItems: selectCartItems
 });
 
 const mapDispatchToProps = dispatch => ({
-  signOutStart: () => dispatch(signOutStart())
+  signOutStart: (currentUser, selectCartItems) =>
+    dispatch(signOutStart(currentUser, selectCartItems))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

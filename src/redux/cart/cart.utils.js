@@ -1,6 +1,5 @@
 export const addItemToCart = (itemsInCart, itemToAdd) => {
   const itemExistsInCart = itemsInCart.find(item => item.id === itemToAdd.id);
-  console.log('ko');
 
   if (itemExistsInCart) {
     return itemsInCart.map(item =>
@@ -12,7 +11,6 @@ export const addItemToCart = (itemsInCart, itemToAdd) => {
 
   return [...itemsInCart, { ...itemToAdd, quantity: 1 }];
 };
-
 export const removeItemFromCart = (itemsInCart, itemToRemove) => {
   const itemExistsInCart = itemsInCart.find(
     item => item.id === itemToRemove.id

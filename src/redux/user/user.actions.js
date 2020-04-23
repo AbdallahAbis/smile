@@ -15,8 +15,9 @@ export const signUpStart = userCredentials => ({
   type: UserActionTypes.SIGN_UP_START,
   payload: userCredentials
 });
-export const signOutStart = () => ({
-  type: UserActionTypes.SIGN_OUT_START
+export const signOutStart = (user, cartItems) => ({
+  type: UserActionTypes.SIGN_OUT_START,
+  payload: { user, cartItems }
 });
 
 // Actions Success

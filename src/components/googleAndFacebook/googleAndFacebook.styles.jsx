@@ -12,10 +12,10 @@ export const FacebookAndGoogleContainer = styled.div`
 `;
 
 export const Social = styled(CustomButton)`
-  margin-top: 2.5rem;
+  margin-top: 4rem;
   width: 90%;
   background-color: ${({ type }) => variables[type]};
 `;
 export const Paragraph = styled.p`
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 `;

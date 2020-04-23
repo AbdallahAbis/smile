@@ -6,7 +6,8 @@ import {
   googleProvider,
   facebookProvider,
   createUserDocument,
-  getCurrentUser
+  getCurrentUser,
+  addCartItemsToUserProfile
 } from "../../firebase/firebase.utils";
 
 import {
@@ -22,7 +23,7 @@ function* getSnapshotFromUserAuth(user, otherInfo) {
   try {
     const userRef = yield call(createUserDocument, user, otherInfo);
     const snapshot = yield userRef.get();
-
+    console.log(snapshot);
     yield put(signInSuccess({ id: snapshot.id, ...snapshot.data() }));
   } catch (err) {
     yield put(signInFailure(err.message));
@@ -34,7 +35,7 @@ export function* signInWithGoogle() {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
   } catch (err) {
-    yield put(signInFailure(err.message));
+    yield console.error(err.message);
   }
 }
 export function* signInWithFacebook() {
@@ -42,7 +43,7 @@ export function* signInWithFacebook() {
     const { user } = yield auth.signInWithPopup(facebookProvider);
     yield getSnapshotFromUserAuth(user);
   } catch (err) {
-    yield put(signInFailure(err.message));
+    yield console.error(err.message);
   }
 }
 
@@ -52,18 +53,16 @@ function* signInWithEmail({ payload: { email, password } }) {
 
     yield getSnapshotFromUserAuth(user);
   } catch (err) {
-    yield put(signInFailure(err.message));
+    yield console.error(err.message);
+    yield put(signInFailure("Email or Password is incorrect!"));
   }
 }
 
 function* signUp({ payload: { email, password, displayName } }) {
   try {
-    console.log(typeof email, typeof password, displayName);
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield put(signUpSuccess({ user, otherInfo: { displayName } }));
   } catch (err) {
-    console.log(err);
-
     yield put(signUpFailure(err.message));
   }
 }
@@ -72,10 +71,11 @@ function* signInAfterSignUp({ payload: { user, otherInfo } }) {
   yield getSnapshotFromUserAuth(user, otherInfo);
 }
 
-function* signOut() {
+function* signOut({ payload: { user, cartItems } }) {
   try {
     yield auth.signOut();
     yield put(signOutSuccess());
+    addCartItemsToUserProfile(user.id, cartItems);
   } catch (err) {
     yield put(signOutFailure(err.message));
   }
@@ -84,11 +84,12 @@ function* signOut() {
 function* isUserAuthenticated() {
   try {
     const user = yield getCurrentUser();
+
     if (user) {
       yield getSnapshotFromUserAuth(user);
     }
   } catch (err) {
-    yield put(signInFailure(err.message));
+    yield console.error(err.message);
   }
 }
 
