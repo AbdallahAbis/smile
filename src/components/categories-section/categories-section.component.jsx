@@ -1,18 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import { COVER_IMAGES } from "../../redux/shop-data/shop-data";
+import {
+  selectAllProductsAsArray
+} from "../../redux/shop/shop.selectors";
 
 import ProductsOverview from "../products-overview/products-overview.component";
 
-const CategoriesSection = () => {
-
+const CategoriesSection = ({ products }) => {
   return (
-    <ProductsOverview
-      type="categories"
-      title="Categories"
-      items={COVER_IMAGES}
-    />
+    <ProductsOverview type="categories" title="Categories" items={products} />
   );
 };
 
-export default CategoriesSection;
+const mapStateToProps = createStructuredSelector({
+  products: selectAllProductsAsArray
+});
+
+export default connect(mapStateToProps)(CategoriesSection);

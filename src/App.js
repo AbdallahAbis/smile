@@ -1,7 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import ScrollToTop from "./utils/scrollTop";
+
+import { checkUserSession } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
+
+import { fetchCollectionsStart } from "./redux/shop/shop.actions";
+import { selectAllProducts } from "./redux/shop/shop.selectors";
 
 import Header from "./components/header/header.component";
 import Footer from "./components/footer/footer.component";
@@ -13,12 +21,23 @@ import ContactUsPage from "./pages/contactUsPage/contactUsPage.component";
 import CheckoutPage from "./pages/checkoutPage/checkoutPage.component";
 import ProductPage from "./pages/productPage/productPage.component";
 import CategoryPage from "./pages/categoryPage/categoryPage.component";
-
-import "./App.scss";
 import LoginPage from "./pages/loginPage/loginPage.component";
 
-const App = () => (
-  <Router>
+import "./App.scss";
+
+const App = ({
+  checkUserSession,
+  currentUser,
+  fetchCollectionsStart,
+  selectAllProducts
+}) => {
+  useEffect(() => {
+    checkUserSession();
+  }, [checkUserSession]);
+  useEffect(() => {
+  fetchCollectionsStart();
+  }, [fetchCollectionsStart]);
+  return !selectAllProducts ? null : (
     <React.Fragment>
       <ScrollToTop />
       <Route path="/" component={Header} />
@@ -30,15 +49,33 @@ const App = () => (
           component={ProductPage}
         />
         <Route exact path="/store" component={StorePage} />
-        <Route exact path="/log-in" component={LoginPage} />
-        <Route exact path="/sign-up" component={SignUpPage} />
+        <Route
+          exact
+          path="/log-in"
+          render={() => (currentUser ? <Redirect to="/" /> : <LoginPage />)}
+        />
+        <Route
+          exact
+          path="/sign-up"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
+        />
         <Route exact path="/contact" component={ContactUsPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/store/:categoryName" component={CategoryPage} />
       </Switch>
       <Footer />
     </React.Fragment>
-  </Router>
-);
+  );
+};
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  selectAllProducts: selectAllProducts
+});
+
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -11,7 +11,7 @@ export const ImageContainer = styled.div`
   height: 42rem;
   width: 24rem;
   margin: 0 auto;
-  &:hover ~ a {
+  &:hover ~ button {
     opacity: 1;
   }
 `;
@@ -45,6 +45,5 @@ export const Button = styled(CustomButton)`
   transition: all 0.2s;
   &:hover {
     opacity: 1;
-    // display: inline-block;
   }
 `;

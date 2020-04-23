@@ -4,7 +4,7 @@ import variables from "../../assets/styles/variables.scss";
 import CustomButton from "../../components/custom-button/custom-button.component";
 
 export const Container = styled.div`
-  margin: 20rem 20rem 10rem 20rem;
+  margin: 15rem 20rem 10rem 20rem;
 `;
 
 export const Title = styled.h1`
@@ -81,5 +81,19 @@ export const PayButton = styled(CustomButton)`
 padding: 1rem 3.5rem;
 display: inline-block;
 margin-left: auto;
+&.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  }
+`;
+export const Empty = styled.p`
+font-family: ${variables.viga};
+font-size: 2rem;
+letter-spacing: 1px;
+text-align: center;
+margin-bottom: 10rem;
+border: 1px solid ${variables.google};
+padding: 5rem;
   }
 `;

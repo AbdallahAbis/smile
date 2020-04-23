@@ -5,18 +5,20 @@ import {
   ItemContainer,
   ImageContainer,
   Image,
-  Button,
+  Button
 } from "./categories-preview.styles";
 
 const Categories = ({ items }) => {
   return (
     <Container>
-      {items.map((item) => (
+      {items.map(item => (
         <ItemContainer key={item.id}>
           <ImageContainer>
-            <Image src={item.imageUrl} alt={item.name} />
+            <Image src={item.imageUrl} alt={item.title} />
           </ImageContainer>
-          <Button to={`/store/${item.name.toLowerCase()}`}>{item.name}</Button>
+          <Button link="true" to={`/store/${item.title.toLowerCase()}`}>
+            {item.title}
+          </Button>
         </ItemContainer>
       ))}
     </Container>

@@ -10,6 +10,9 @@ export const Container = styled.div`
 `;
 export const Button = styled(CustomButton)`
   padding: 0.5rem 1rem;
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 `;
 export const Number = styled.p``;
-
