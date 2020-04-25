@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -9,13 +10,16 @@ import ProductsOverview from "../../components/products-overview/products-overvi
 
 const CategoryPage = ({ match: { params }, allProducts }) => {
   const { categoryName } = params;
+  const category = allProducts[categoryName];
+  console.log(category);
 
   return (
     <Container>
-      <ProductsOverview
-        title={categoryName.toUpperCase()}
-        items={allProducts[categoryName].items}
-      />
+      {!category ? (
+        <Redirect to="/not-found" />
+      ) : (
+        <ProductsOverview title={categoryName.toUpperCase()} items={category.items} />
+      )}
     </Container>
   );
 };

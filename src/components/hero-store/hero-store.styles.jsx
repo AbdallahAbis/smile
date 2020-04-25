@@ -12,7 +12,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 0 10rem;
-margin: 5rem 0;
+margin-bottom: 5rem;
 
 @media ${device.phone}{
 background: ${variables.darkerWhite};
@@ -20,7 +20,7 @@ clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0 100%);
 height: 30vh;
 padding: 0 5rem;
 margin-bottom: 2rem;
-margin-top: 5rem;
+// margin-top: 5rem;
 }
 `;
 export const Title = styled.h1`

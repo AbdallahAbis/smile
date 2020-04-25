@@ -22,6 +22,7 @@ import CheckoutPage from "./pages/checkoutPage/checkoutPage.component";
 import ProductPage from "./pages/productPage/productPage.component";
 import CategoryPage from "./pages/categoryPage/categoryPage.component";
 import LoginPage from "./pages/loginPage/loginPage.component";
+import NotFoundPage from "./pages/notFoundPage/notFoundPage.component";
 
 import "./App.scss";
 
@@ -58,6 +59,8 @@ const App = ({
         <Route exact path="/contact" component={ContactUsPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/store/:categoryName" component={CategoryPage} />
+        <Route exact path="/not-found" component={NotFoundPage} />
+        <Redirect to="/not-found" />
       </Switch>
       <Footer />
     </React.Fragment>
