@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { LogoSVG } from "./logo.styles";
+import { Logo } from "./logo.styles";
 
 const Logo = ({ ...props }) => (
   <Link to="/">
-    <LogoSVG {...props} />
+    <Logo {...props} />
   </Link>
 );
 
