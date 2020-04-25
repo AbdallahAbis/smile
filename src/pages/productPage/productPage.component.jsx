@@ -2,25 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectFeaturedProducts } from "../../redux/shop/shop.selectors";
+import {
+  selectFeaturedProducts,
+  selectAllProductsAtOnce
+} from "../../redux/shop/shop.selectors";
 
-import ProductsPreview from "../../components/products-preview/products-preview.component";
 import SingleProductDetails from "../../components/singleProductDetails/singleProductDetails.component";
 
 import {
   Container,
   Title,
   ButtonContainer,
+  RelatedProducts,
   Button,
   DescriptionContainer,
   DescriptionParagraph,
   RelatedTitle
 } from "./productPage.styles";
 
-const ProductPage = ({ featured }) => {
+const ProductPage = ({ featured, allProducts, location, match }) => {
+  const item = allProducts.filter(product => product.id === match.params.id);
+
   return (
     <Container>
-      <SingleProductDetails item={featured[4]} />
+      <SingleProductDetails item={item[0]} />
       <DescriptionContainer>
         <Title className="description">Description</Title>
         <DescriptionParagraph>
@@ -44,7 +49,7 @@ const ProductPage = ({ featured }) => {
         </DescriptionParagraph>
       </DescriptionContainer>
       <RelatedTitle>RELATED PRODUCTS</RelatedTitle>
-      <ProductsPreview items={featured.filter(item => item.id <= 4)} />
+      <RelatedProducts items={featured.filter((item, ind) => ind < 4)} />
       <ButtonContainer>
         <Button link="true" to="/store">
           Check All Products
@@ -55,7 +60,8 @@ const ProductPage = ({ featured }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  featured: selectFeaturedProducts
+  featured: selectFeaturedProducts,
+  allProducts: selectAllProductsAtOnce
 });
 
 export default connect(mapStateToProps)(ProductPage);

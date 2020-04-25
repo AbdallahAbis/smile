@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link as ReactLink } from "react-router-dom";
 import variables from "../../assets/styles/variables.scss";
+import device from "../../assets/styles/media";
 
 const iconsContainer = css`
   grid-column: 2;
@@ -8,6 +9,7 @@ const iconsContainer = css`
   text-align: center;
   width: 100%;
 `;
+
 const flexGroup = css`
   display: flex;
   flex-direction: column;
@@ -36,16 +38,34 @@ export const Container = styled.div`
   padding: 0 10rem;
   background-color: ${variables.black};
   color: ${variables.white};
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1.5fr 1fr;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+
+  @media ${device.phone} {
+    padding: 0 5rem;
+  }
 `;
 
+export const TopFooter = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  padding-top: 2rem;
+  @media ${device.phone} {
+    display: none;
+  }
+`;
+export const BottomFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  @media ${device.phone} {
+    justify-content: center;
+  }
+`;
 //Outer containers
 export const Categories = styled.div`
   ${flexGroup}
+  grid-column: 1;
+  grid-row: 1 / -1;
 `;
 export const Payments = styled.div`
   ${iconsContainer}
@@ -61,7 +81,7 @@ export const Follow = styled.div`
 export const About = styled.div`
   ${flexGroup}
   grid-column: 3;
-  grid-row: 1;
+  grid-row: 1 / -1;
   justify-self: end;
 `;
 
@@ -74,6 +94,9 @@ export const LogoContainer = styled.div`
   grid-column: 1;
   grid-row: 2;
   align-self: end;
+  @media ${device.phone} {
+    display: none;
+  }
 `;
 
 //Icons

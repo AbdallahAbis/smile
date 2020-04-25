@@ -1,7 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import Quantity from "../quantity/quantity.component";
-
+import { selectCartItems } from "../../redux/cart/cart.selectors";
 import {
   ProductHeroContainer,
   Title,
@@ -16,18 +17,39 @@ import {
   TotalNumber,
   ButtonsContainer,
   Button,
+  ProductQuantity
 } from "./singleProductDetails.styles";
 
-const SingleProductDetails = ({ item }) => {
+const SingleProductDetails = ({ item, cartItems }) => {
+  const itemInCart = cartItems.find(cartItem => cartItem.id === item.id);
+  let currentItem = item;
+  if (itemInCart && itemInCart.quantity) currentItem = itemInCart;
+  console.log(currentItem);
+
   return (
     <ProductHeroContainer>
-      <Detail>Categories/Women/Short Skirt</Detail>
-      <Title>Short Skirt</Title>
+      <Title>{currentItem.name}</Title>
       <ImagesContainer>
-        <PrimaryImage area="p" src={item.imageUrl} alt={item.name} />
-        <SecondaryImage area="s" src={item.imageUrl} alt={item.name} />
-        <SecondaryImage area="t" src={item.imageUrl} alt={item.name} />
-        <SecondaryImage area="q" src={item.imageUrl} alt={item.name} />
+        <PrimaryImage
+          area="p"
+          src={currentItem.imageUrl}
+          alt={currentItem.name}
+        />
+        <SecondaryImage
+          area="s"
+          src={currentItem.imageUrl}
+          alt={currentItem.name}
+        />
+        <SecondaryImage
+          area="t"
+          src={currentItem.imageUrl}
+          alt={currentItem.name}
+        />
+        <SecondaryImage
+          area="q"
+          src={currentItem.imageUrl}
+          alt={currentItem.name}
+        />
       </ImagesContainer>
       <AllDetailsContainer>
         <DetailsInTextContainer>
@@ -36,10 +58,15 @@ const SingleProductDetails = ({ item }) => {
           <Detail>Manufacture: Unknown.</Detail>
           <Detail>Shipping From: Unknown.</Detail>
         </DetailsInTextContainer>
-        <Quantity number="3" />
+        <ProductQuantity item={currentItem} />
         <TotalContainer>
           <TotalText>TOTAL</TotalText>
-          <TotalNumber>$14076</TotalNumber>
+          <TotalNumber>
+            $
+            {currentItem.quantity
+              ? currentItem.price * currentItem.quantity
+              : currentItem.price}
+          </TotalNumber>
         </TotalContainer>
         <ButtonsContainer>
           <Button>ADD TO CART</Button>
@@ -50,4 +77,8 @@ const SingleProductDetails = ({ item }) => {
   );
 };
 
-export default SingleProductDetails;
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems
+});
+
+export default connect(mapStateToProps)(SingleProductDetails);

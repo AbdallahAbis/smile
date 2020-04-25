@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 import variables from "../../assets/styles/variables.scss";
-
+import device from "../../assets/styles/media";
 import CustomButton from "../custom-button/custom-button.component";
-
 
 export const Container = styled.div`
   width: 20vw;
@@ -19,6 +18,25 @@ export const Container = styled.div`
   text-align: center;
   overflow: hidden;
   z-index: 30000;
+  transform: translate(0, -200%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
+  &.true {
+    transform: none;
+    opacity: 1;
+  }
+
+  @media ${device.phone} {
+    width: 70vw;
+    height: 75rem;
+    font-size: 2.3rem;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    &.true {
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+  }
 `;
 export const ItemsContainer = styled.div`
   overflow: scroll;
@@ -36,6 +54,10 @@ export const ItemsContainer = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: ${variables.lightGrey};
     border-radius: 4px;
+  }
+
+  @media ${device.phone} {
+    max-height: 62rem;
   }
 `;
 
@@ -85,6 +107,9 @@ export const RemoveIcon = styled.img`
   justify-self: end;
   margin-top: 1rem;
   cursor: pointer;
+  @media ${device.phone} {
+    height: 3rem;
+  }
 `;
 export const Price = styled.p`
   grid-column: 3;
@@ -106,4 +131,8 @@ export const Button = styled(CustomButton)`
   font-size: 1.7rem;
   padding: 1.3rem 1.7rem;
   font-family: ${variables.montserrat};
+
+  @media ${device.phone} {
+    font-size: 2.5rem;
+  }
 `;

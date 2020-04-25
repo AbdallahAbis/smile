@@ -4,14 +4,18 @@ import { createStructuredSelector } from "reselect";
 
 import {
   selectToggleHidden,
+  selectToggleMenu,
   selectCartItems
 } from "../../redux/cart/cart.selectors";
+import { toggleMenuHidden } from "../../redux/cart/cart.actions";
+
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { signOutStart } from "../../redux/user/user.actions";
 
 import Logo from "../logo/logo.component";
 import CartIcon from "../cart-icon/cart-icon.component";
+import Menu from "../hamburger-menu/hamburger-menu.component";
 
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
@@ -20,9 +24,11 @@ import { Container, OptionsContainer, Option } from "./header.styles";
 const Header = ({
   location,
   isHidden,
+  isClosed,
   currentUser,
   signOutStart,
-  cartItems
+  cartItems,
+  toggleMenu
 }) => {
   let color = "";
   let background = "";
@@ -39,14 +45,20 @@ const Header = ({
     <React.Fragment>
       <Container color={color} background={background}>
         <Logo color={color} />
-        <OptionsContainer>
-          <Option exact to="/">
-            Home
+        <OptionsContainer
+          color={color}
+          className={`${!isClosed ? "true" : ""}`}
+        >
+          <Option to="/store" onClick={toggleMenu}>
+            Store
           </Option>
-          <Option to="/store">Store</Option>
-          <Option to="/contact">Contact</Option>
+          <Option to="/contact" onClick={toggleMenu}>
+            Contact
+          </Option>
           {!currentUser ? (
-            <Option to="/log-in">Log in</Option>
+            <Option to="/log-in" onClick={toggleMenu}>
+              Log in
+            </Option>
           ) : (
             <Option
               exact
@@ -56,10 +68,11 @@ const Header = ({
               Sign out
             </Option>
           )}
-
-          <CartIcon />
         </OptionsContainer>
-        {!isHidden ? <CartDropdown /> : null}
+        <CartIcon />
+        <Menu />
+        <CartDropdown />
+        {/* {!isHidden ? <CartDropdown /> : null} */}
       </Container>
     </React.Fragment>
   );
@@ -67,13 +80,15 @@ const Header = ({
 
 const mapStateToProps = createStructuredSelector({
   isHidden: selectToggleHidden,
+  isClosed: selectToggleMenu,
   currentUser: selectCurrentUser,
   cartItems: selectCartItems
 });
 
 const mapDispatchToProps = dispatch => ({
   signOutStart: (currentUser, selectCartItems) =>
-    dispatch(signOutStart(currentUser, selectCartItems))
+    dispatch(signOutStart(currentUser, selectCartItems)),
+  toggleMenu: () => dispatch(toggleMenuHidden())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

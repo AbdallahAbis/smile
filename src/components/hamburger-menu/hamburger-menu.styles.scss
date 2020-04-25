@@ -1,0 +1,62 @@
+:root {
+  --time: 0.3s;
+}
+
+.container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all var(--time) ease-in-out;
+
+  @media only screen and (max-width: 37.5em) {
+    display: flex;
+    // position: absolute;
+    // top: 4rem;
+    // right: 5rem;
+  }
+}
+
+.menu {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  border-radius: 25px;
+  background: currentColor;
+  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all var(--time) ease-in-out;
+}
+
+.menu::before,
+.menu::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 25px;
+  background: currentColor;
+  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all var(--time) ease-in-out;
+}
+
+.container .menu::before {
+  transform: translateY(-7px);
+}
+
+.menu::after {
+  transform: translateY(7px);
+}
+
+.true .menu {
+  transform: translateX(-40px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.true .menu::before {
+  transform: rotate(45deg) translate(28px, -28px);
+}
+
+.true .menu::after {
+  transform: rotate(-45deg) translate(28px, 28px);
+}

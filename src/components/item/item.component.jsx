@@ -10,28 +10,28 @@ import {
   TextContainer,
   Title,
   Price,
-  Button,
+  Button
 } from "./item.styles";
 
 const Item = ({ item, addItem }) => {
   return (
     <ItemContainer key={item.id}>
-      <ImageContainer>
+      <ImageContainer to={`/store/item/${item.id}`}>
         <Image src={item.imageUrl} alt={item.name}></Image>
       </ImageContainer>
+      <Button to="#" type="button" onClick={() => addItem(item)}>
+        Add To Cart
+      </Button>
       <TextContainer>
         <Title>{item.name}</Title>
         <Price>${item.price}</Price>
       </TextContainer>
-      <Button to="#" type="button" onClick={() => addItem(item)}>
-        Add To Cart
-      </Button>
     </ItemContainer>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item))
 });
 
 export default connect(null, mapDispatchToProps)(Item);

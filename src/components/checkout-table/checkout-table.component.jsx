@@ -2,14 +2,14 @@ import React from "react";
 
 import {
   TableHeaderContainer,
-  TableHeaderTitle,
+  TableHeaderTitle
 } from "./checkout-table.styles";
 
 const CheckoutTable = () => {
   return (
     <TableHeaderContainer>
-      <TableHeaderTitle>Product Image</TableHeaderTitle>
-      <TableHeaderTitle>Product Name</TableHeaderTitle>
+      <TableHeaderTitle>Image</TableHeaderTitle>
+      <TableHeaderTitle>Name</TableHeaderTitle>
       <TableHeaderTitle>Quantity</TableHeaderTitle>
       <TableHeaderTitle>Price</TableHeaderTitle>
       <TableHeaderTitle></TableHeaderTitle>

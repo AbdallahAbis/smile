@@ -1,10 +1,17 @@
 import styled from "styled-components";
 import variables from "../../assets/styles/variables.scss";
-
+import device from "../../assets/styles/media";
 import CustomButton from "../../components/custom-button/custom-button.component";
 
 export const Container = styled.div`
-  margin: 15rem 20rem 10rem 20rem;
+  padding: 15rem 20rem 10rem 20rem;
+  margin-bottom: 10rem;
+  // height: 100vh;
+  @media ${device.phone} {
+    // height: 100vh;
+    margin: 0;
+    padding: 10rem 5rem;
+  }
 `;
 
 export const Title = styled.h1`
