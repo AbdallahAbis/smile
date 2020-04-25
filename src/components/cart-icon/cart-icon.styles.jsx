@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import device from "../../assets/styles/media";
 import { ReactComponent as CartSVG } from "../../assets/cart/cart.svg";
 
 export const CartContainer = styled(Link)`
@@ -8,6 +8,16 @@ export const CartContainer = styled(Link)`
   width: 2.5rem;
   color: currentColor;
   position: relative;
+  margin-left: 8rem;
+
+  @media ${device.phone} {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+  }
 `;
 export const Cart = styled(CartSVG)`
   height: 100%;
@@ -21,4 +31,8 @@ export const AddedItems = styled.p`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -30%);
+
+  @media ${device.phone} {
+    font-size: 2rem;
+  }
 `;

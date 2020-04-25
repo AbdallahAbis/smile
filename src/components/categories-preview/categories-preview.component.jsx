@@ -17,7 +17,7 @@ const Categories = ({ items }) => {
             <Image src={item.imageUrl} alt={item.title} />
           </ImageContainer>
           <Button link="true" to={`/store/${item.title.toLowerCase()}`}>
-            {item.title}
+            {item.title.toUpperCase()}
           </Button>
         </ItemContainer>
       ))}

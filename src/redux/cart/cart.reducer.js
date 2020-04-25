@@ -3,6 +3,7 @@ import CartActionTypes from "./cart.types";
 
 const INITIAL_STATE = {
   isHidden: true,
+  isClosed: true,
   cartItems: []
 };
 
@@ -11,11 +12,16 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.TOGGLE_CART_HIDDEN:
       return {
         ...state,
-        isHidden: !state.isHidden
+        isHidden: !state.isHidden,
+        isClosed: true
+      };
+    case CartActionTypes.TOGGLE_MENU:
+      return {
+        ...state,
+        isClosed: !state.isClosed,
+        isHidden: true
       };
     case CartActionTypes.FETCH_CART_ITEMS:
-      console.log(action.payload);
-
       return {
         ...state,
         cartItems: action.payload ? action.payload : []

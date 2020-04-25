@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCartItems } from "../../redux/cart/cart.selectors";
+import {
+  selectCartItems,
+  selectToggleHidden
+} from "../../redux/cart/cart.selectors";
 
 import {
   clearItemFromCart,
@@ -22,9 +25,9 @@ import {
   Empty
 } from "./cart-dropdown.styles";
 
-const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
+const CartDropdown = ({ cartItems, clearItem, toggleHidden, isHidden }) => {
   return (
-    <Container>
+    <Container className={!isHidden}>
       <ItemsContainer>
         {cartItems.length > 0 ? (
           <React.Fragment>
@@ -53,7 +56,8 @@ const CartDropdown = ({ cartItems, clearItem, toggleHidden }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
+  isHidden: selectToggleHidden
 });
 
 const mapDispatchToProps = dispatch => ({

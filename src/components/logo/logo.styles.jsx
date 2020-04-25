@@ -1,11 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import device from "../../assets/styles/media";
 
 import { ReactComponent as LogoWhiteSVG } from "../../assets/logo/logo-white.svg";
-import { ReactComponent as LogoBlackSVG } from "../../assets/logo/logo-black.svg";
 
-export const LogoWhite = styled(LogoWhiteSVG)`
-  height: 4rem;
+const phoneHeight = css`
+  @media ${device.phone} {
+    height: 3rem;
+    fill: black;
+  }
 `;
-export const LogoBlack = styled(LogoBlackSVG)`
+
+export const LogoSVG = styled(LogoWhiteSVG)`
   height: 4rem;
+  fill: ${({ color }) => color};
+  ${phoneHeight}
 `;

@@ -6,6 +6,8 @@ import { addItem, removeItem } from "../../redux/cart/cart.actions";
 import { Container, Button, Number } from "./quantity.styles";
 
 const Quantity = ({ number, item, addItem, removeItem, ...props }) => {
+  console.log(item);
+
   let classNames = "";
 
   if (item.quantity === 1) {
@@ -21,7 +23,7 @@ const Quantity = ({ number, item, addItem, removeItem, ...props }) => {
       >
         -
       </Button>
-      <Number>{number}</Number>
+      <Number>{!item.quantity ? 0 : item.quantity}</Number>
       <Button reversed="true" onClick={() => addItem(item)}>
         +
       </Button>

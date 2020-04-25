@@ -1,18 +1,26 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import variables from "../../assets/styles/variables.scss";
+import device from "../../assets/styles/media";
 
 import CustomButton from "../custom-button/custom-button.component";
 
-import variables from "../../assets/styles/variables.scss";
-
 export const ItemContainer = styled.div`
   position: relative;
+  overflow: hidden;
 `;
-export const ImageContainer = styled.div`
+export const ImageContainer = styled(Link)`
+  display: inline-block;
   height: 42rem;
-  width: 24rem;
   margin: 0 auto;
   &:hover ~ button {
     opacity: 1;
+  }
+
+  @media ${device.phone} {
+    & ~ button {
+      opacity: 1;
+    }
   }
 `;
 export const Image = styled.img`
@@ -27,6 +35,9 @@ export const TextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
+  @media ${device.phone} {
+    font-size: 1.9rem;
+  }
 `;
 export const Title = styled.p`
   font-family: ${variables.montserrat};
@@ -39,11 +50,15 @@ export const Button = styled(CustomButton)`
   position: absolute;
   width: 80%;
   left: 50%;
-  bottom: 7%;
+  bottom: 10%;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 0.2s;
   &:hover {
     opacity: 1;
+  }
+
+  @media ${device.phone} {
+    font-size: 1.5rem;
   }
 `;

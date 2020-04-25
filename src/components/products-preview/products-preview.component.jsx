@@ -4,9 +4,9 @@ import Item from "../item/item.component";
 
 import { ProductContainer } from "./products-preview.styles";
 
-const ProductsPreview = ({ items }) => {
+const ProductsPreview = ({ items, ...props }) => {
   return (
-    <ProductContainer>
+    <ProductContainer {...props}>
       {items.map(item => (
         <Item key={item.id} item={item} />
       ))}

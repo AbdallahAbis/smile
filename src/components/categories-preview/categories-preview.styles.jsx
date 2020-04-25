@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import device from "../../assets/styles/media";
 
 import CustomButton from "../custom-button/custom-button.component";
 
@@ -9,6 +10,12 @@ export const Container = styled.div`
   grid-column-gap: 6rem;
   grid-row-gap: 4rem;
   margin-top: 5rem;
+  padding: 0 10rem;
+  @media ${device.phone} {
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
+    padding: 0 5rem;
+  }
 `;
 export const ItemContainer = styled.div`
   position: relative;
@@ -25,4 +32,9 @@ export const Button = styled(CustomButton)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media ${device.phone} {
+    font-size: 3rem;
+    padding: 1rem 2rem;
+  }
 `;

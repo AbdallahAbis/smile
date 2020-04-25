@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import device from "../../assets/styles/media";
 import variables from "../../assets/styles/variables.scss";
 
 export const Container = styled.div`
@@ -12,7 +12,16 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 0 10rem;
-margin-bottom: 5rem;
+margin: 5rem 0;
+
+@media ${device.phone}{
+background: ${variables.darkerWhite};
+clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0 100%);
+height: 30vh;
+padding: 0 5rem;
+margin-bottom: 2rem;
+margin-top: 5rem;
+}
 `;
 export const Title = styled.h1`
   color: ${variables.black};
@@ -20,6 +29,10 @@ export const Title = styled.h1`
   letter-spacing: 3px;
   font-family: ${variables.viga};
   display: block;
+
+  @media ${device.phone} {
+    font-size: 5rem;
+  }
 `;
 export const Text = styled.h3`
   margin-top: 1.5rem;
@@ -27,4 +40,8 @@ export const Text = styled.h3`
   font-weight: 300;
   color: ${variables.red};
   font-family: ${variables.montserrat};
+
+  @media ${device.phone} {
+    font-size: 2.5rem;
+  }
 `;

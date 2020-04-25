@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import variables from "../../assets/styles/variables.scss";
+import device from "../../assets/styles/media";
 
 const buttonStyles = css`
   color: ${variables.white};
@@ -22,6 +23,14 @@ const buttonStyles = css`
   &:focus {
     outline: none;
   }
+
+  @media ${device.phone} {
+    font-size: 2.5rem;
+    &:hover {
+      background: ${variables.red};
+      color: ${variables.white};
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -32,11 +41,16 @@ export const LinkButton = styled(Link)`
 `;
 export const ButtonReversed = styled(Button)`
   color: ${variables.black};
-
   background: ${variables.lightGrey};
-
   &:hover {
     background: ${variables.red};
     color: ${variables.white};
+
+    @media ${device.phone} {
+      &:hover {
+        background: ${variables.lightGrey};
+        color: ${variables.black};
+      }
+    }
   }
 `;

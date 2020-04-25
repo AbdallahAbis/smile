@@ -26,8 +26,8 @@ const SignUp = ({ signUpStart, ErrorMessage }) => {
   };
   return (
     <EmailAndPasswordContainer>
-      {ErrorMessage ? <AsyncError message={ErrorMessage} /> : null}
       <Paragraph>Sign up using your email and password!</Paragraph>
+      {ErrorMessage ? <AsyncError message={ErrorMessage} /> : null}
       <form onSubmit={handleSubmit(OnSubmit)}>
         <InputField
           label="Full Name:"

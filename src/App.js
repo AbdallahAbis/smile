@@ -35,7 +35,7 @@ const App = ({
     checkUserSession();
   }, [checkUserSession]);
   useEffect(() => {
-  fetchCollectionsStart();
+    fetchCollectionsStart();
   }, [fetchCollectionsStart]);
   return !selectAllProducts ? null : (
     <React.Fragment>
@@ -43,11 +43,7 @@ const App = ({
       <Route path="/" component={Header} />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route
-          exact
-          path="/store/:categoryName/:name"
-          component={ProductPage}
-        />
+        <Route exact path="/store/item/:id" component={ProductPage} />
         <Route exact path="/store" component={StorePage} />
         <Route
           exact
