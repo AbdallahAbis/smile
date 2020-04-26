@@ -13,7 +13,7 @@ const Input = ({ label, type, autoComplete, reference, ...props }) => (
         autoComplete={autoComplete}
       />
     ) : (
-      <TextArea />
+      <TextArea {...props} />
     )}
   </Container>
 );

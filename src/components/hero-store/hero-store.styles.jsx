@@ -17,10 +17,10 @@ margin-bottom: 5rem;
 @media ${device.phone}{
 background: ${variables.darkerWhite};
 clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0 100%);
-height: 30vh;
-padding: 0 5rem;
+height: 100%;
+padding: 4rem 5rem;
 margin-bottom: 2rem;
-// margin-top: 5rem;
+
 }
 `;
 export const Title = styled.h1`

@@ -12,6 +12,7 @@ import { fetchCollectionsStart } from "./redux/shop/shop.actions";
 import { selectAllProducts } from "./redux/shop/shop.selectors";
 
 import Header from "./components/header/header.component";
+import Spinner from "./components/spinner/spinner.component";
 import Footer from "./components/footer/footer.component";
 
 import HomePage from "./pages/homePage/homePage.component";
@@ -35,11 +36,15 @@ const App = ({
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
+
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
-  return !selectAllProducts ? null : (
-    <React.Fragment>
+
+  return !selectAllProducts ? (
+    <Spinner />
+  ) : (
+    <>
       <ScrollToTop />
       <Route path="/" component={Header} />
       <Switch>
@@ -63,7 +68,7 @@ const App = ({
         <Redirect to="/not-found" />
       </Switch>
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
 

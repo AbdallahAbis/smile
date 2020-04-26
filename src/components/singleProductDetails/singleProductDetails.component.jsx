@@ -22,9 +22,7 @@ import {
 
 const SingleProductDetails = ({ item, cartItems }) => {
   const itemInCart = cartItems.find(cartItem => cartItem.id === item.id);
-  let currentItem = item;
-  if (itemInCart && itemInCart.quantity) currentItem = itemInCart;
-  console.log(currentItem);
+  let currentItem = itemInCart && itemInCart.quantity ? itemInCart : item;
 
   return (
     <ProductHeroContainer>

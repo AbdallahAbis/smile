@@ -109,7 +109,7 @@ export const Button = styled(CustomButton)`
   padding: 1rem 2rem;
 
   @media ${device.phone} {
-    width: 80%;
+    width: 90%;
     align-self: center;
     &:not(:last-child) {
       margin-bottom: 2rem;

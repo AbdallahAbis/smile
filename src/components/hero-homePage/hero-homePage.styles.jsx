@@ -38,7 +38,7 @@ export const Title = styled.h1`
   display: block;
   @media ${device.phone} {
     color: ${variables.black};
-    font-size: 6rem;
+    font-size: 5rem;
     margin-top: 15rem;
   }
 `;

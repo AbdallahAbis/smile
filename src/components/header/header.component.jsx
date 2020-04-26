@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import {
-  selectToggleHidden,
   selectToggleMenu,
   selectCartItems
 } from "../../redux/cart/cart.selectors";
@@ -23,26 +22,23 @@ import { Container, OptionsContainer, Option } from "./header.styles";
 
 const Header = ({
   location,
-  isHidden,
   isClosed,
   currentUser,
   signOutStart,
   cartItems,
   toggleMenu
 }) => {
-  let color = "";
-  let background = "";
+  const color = location.pathname === "/" ? "white" : "black";
 
-  location.pathname === "/" ? (color = "white") : (color = "black");
-
-  location.pathname === "/store"
-    ? (background = "lightGrey")
-    : location.pathname === "/"
-    ? (background = "black")
-    : (background = "white");
+  const background =
+    location.pathname === "/"
+      ? "black"
+      : location.pathname === "/store"
+      ? "lightGrey"
+      : "white";
 
   return (
-    <React.Fragment>
+    <>
       <Container color={color} background={background}>
         <Logo color={color} />
         <OptionsContainer
@@ -72,14 +68,12 @@ const Header = ({
         <CartIcon />
         <Menu />
         <CartDropdown />
-        {/* {!isHidden ? <CartDropdown /> : null} */}
       </Container>
-    </React.Fragment>
+    </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  isHidden: selectToggleHidden,
   isClosed: selectToggleMenu,
   currentUser: selectCurrentUser,
   cartItems: selectCartItems

@@ -13,22 +13,20 @@ import {
   Button
 } from "./item.styles";
 
-const Item = ({ item, addItem }) => {
-  return (
-    <ItemContainer key={item.id}>
-      <ImageContainer to={`/store/item/${item.id}`}>
-        <Image src={item.imageUrl} alt={item.name}></Image>
-      </ImageContainer>
-      <Button to="#" type="button" onClick={() => addItem(item)}>
-        Add To Cart
-      </Button>
-      <TextContainer>
-        <Title>{item.name}</Title>
-        <Price>${item.price}</Price>
-      </TextContainer>
-    </ItemContainer>
-  );
-};
+const Item = ({ item, addItem }) => (
+  <ItemContainer key={item.id}>
+    <ImageContainer to={`/store/item/${item.id}`}>
+      <Image src={item.imageUrl} alt={item.name}></Image>
+    </ImageContainer>
+    <Button to="#" type="button" onClick={() => addItem(item)}>
+      Add To Cart
+    </Button>
+    <TextContainer>
+      <Title>{item.name}</Title>
+      <Price>${item.price}</Price>
+    </TextContainer>
+  </ItemContainer>
+);
 
 const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))

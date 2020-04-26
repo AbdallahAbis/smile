@@ -11,14 +11,15 @@ import ProductsOverview from "../../components/products-overview/products-overvi
 const CategoryPage = ({ match: { params }, allProducts }) => {
   const { categoryName } = params;
   const category = allProducts[categoryName];
-  console.log(category);
-
   return (
     <Container>
       {!category ? (
         <Redirect to="/not-found" />
       ) : (
-        <ProductsOverview title={categoryName.toUpperCase()} items={category.items} />
+        <ProductsOverview
+          title={categoryName.toUpperCase()}
+          items={category.items}
+        />
       )}
     </Container>
   );

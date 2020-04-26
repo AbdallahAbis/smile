@@ -5,16 +5,14 @@ import {
   TableHeaderTitle
 } from "./checkout-table.styles";
 
-const CheckoutTable = () => {
-  return (
-    <TableHeaderContainer>
-      <TableHeaderTitle>Image</TableHeaderTitle>
-      <TableHeaderTitle>Name</TableHeaderTitle>
-      <TableHeaderTitle>Quantity</TableHeaderTitle>
-      <TableHeaderTitle>Price</TableHeaderTitle>
-      <TableHeaderTitle></TableHeaderTitle>
-    </TableHeaderContainer>
-  );
-};
+const CheckoutTable = () => (
+  <TableHeaderContainer>
+    <TableHeaderTitle>Image</TableHeaderTitle>
+    <TableHeaderTitle>Name</TableHeaderTitle>
+    <TableHeaderTitle>Quantity</TableHeaderTitle>
+    <TableHeaderTitle>Price</TableHeaderTitle>
+    <TableHeaderTitle></TableHeaderTitle>
+  </TableHeaderContainer>
+);
 
 export default CheckoutTable;

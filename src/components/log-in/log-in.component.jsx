@@ -20,9 +20,7 @@ import {
 
 const LogIn = ({ emailSignInStart, ErrorMessage }) => {
   const { register, handleSubmit, errors } = useForm();
-
-  const OnSubmit = data => {
-    const { email, password } = data;
+  const OnSubmit = ({ email, password }) => {
     emailSignInStart(email, password);
   };
 

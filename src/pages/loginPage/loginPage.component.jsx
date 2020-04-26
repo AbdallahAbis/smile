@@ -5,15 +5,13 @@ import GoogleAndFacebook from "../../components/googleAndFacebook/googleAndFaceb
 
 import { Container } from "./loginPage.styles";
 
-const LoginPage = () => {
-  return (
-    <React.Fragment>
-      <Container>
-        <LogIn />
-        <GoogleAndFacebook />
-      </Container>
-    </React.Fragment>
-  );
-};
+const LoginPage = () => (
+  <>
+    <Container>
+      <LogIn />
+      <GoogleAndFacebook />
+    </Container>
+  </>
+);
 
 export default LoginPage;
