@@ -7,7 +7,7 @@ Please note that I can do better than this.
 
 
 technologies used in the project:
-    firebase
+    firebase <br />
     node-sass
     react
     react-dom
