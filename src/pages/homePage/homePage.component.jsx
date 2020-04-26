@@ -11,8 +11,7 @@ import CategoriesSection from "../../components/categories-section/categories-se
 
 import { Container, ButtonContainer, Button } from "./homePage.styles";
 
-const HomePage = ({ featured }) => {
-  return (
+const HomePage = ({ featured }) => (
     <Container>
       <HeroHomePage />
       <ProductsOverview title="Featured Products" items={featured} />
@@ -25,7 +24,7 @@ const HomePage = ({ featured }) => {
       </ButtonContainer>
     </Container>
   );
-};
+
 
 const mapStateToProps = createStructuredSelector({
   featured: selectFeaturedProducts

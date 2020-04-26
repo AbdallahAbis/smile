@@ -22,20 +22,18 @@ import {
 } from "./checkoutPage.styles";
 
 const CheckoutPage = ({ cartItems, totalPrice, CurrentUser }) => {
-  let classNames = "";
-  if (cartItems.length === 0) {
-    classNames = "disabled";
-  }
+  const classNames = cartItems.length === 0 ? "disabled" : "";
+
   return (
-    <React.Fragment>
+    <>
       <Container>
-        {cartItems.length !== 0 ? (
-          <React.Fragment>
+        {cartItems.length === 0 ? (
+          <Empty>YOUR CART IS EMPTY!</Empty>
+        ) : (
+          <>
             <CheckoutTable />
             <CheckoutPreview items={cartItems} />
-          </React.Fragment>
-        ) : (
-          <Empty>YOUR CART IS EMPTY!</Empty>
+          </>
         )}
 
         <TotalAndPayContainer>
@@ -43,6 +41,7 @@ const CheckoutPage = ({ cartItems, totalPrice, CurrentUser }) => {
             <TotalText>TOTAL</TotalText>
             <TotalNumber>${totalPrice}</TotalNumber>
           </TotalContainer>
+
           {CurrentUser ? (
             <PayButton className={classNames}>PAY NOW</PayButton>
           ) : (
@@ -52,7 +51,7 @@ const CheckoutPage = ({ cartItems, totalPrice, CurrentUser }) => {
           )}
         </TotalAndPayContainer>
       </Container>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -7,13 +7,12 @@ import {
   AsyncMessage
 } from "./error.styles";
 
-const FormError = ({ message }) => {
-  return (
-    <FormContainer>
-      <FormMessage>{message}</FormMessage>
-    </FormContainer>
-  );
-};
+const FormError = ({ message }) => (
+  <FormContainer>
+    <FormMessage>{message}</FormMessage>
+  </FormContainer>
+);
+
 export const AsyncError = ({ message }) => {
   return (
     <AsyncContainer>

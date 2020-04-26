@@ -12,19 +12,17 @@ import {
   Paragraph
 } from "./googleAndFacebook.styles";
 
-const GoogleAndFacebook = ({ googleSignInStart, facebookSignInStart }) => {
-  return (
-    <FacebookAndGoogleContainer>
-      <Paragraph>Continue with your Facebook or Google!</Paragraph>
-      <Social type="facebook" onClick={facebookSignInStart}>
-        CONTINUE WITH FACEBOOK
-      </Social>
-      <Social type="google" onClick={googleSignInStart}>
-        CONTINUE WITH GOOGLE
-      </Social>
-    </FacebookAndGoogleContainer>
-  );
-};
+const GoogleAndFacebook = ({ googleSignInStart, facebookSignInStart }) => (
+  <FacebookAndGoogleContainer>
+    <Paragraph>Continue with your Facebook or Google!</Paragraph>
+    <Social type="facebook" onClick={facebookSignInStart}>
+      CONTINUE WITH FACEBOOK
+    </Social>
+    <Social type="google" onClick={googleSignInStart}>
+      CONTINUE WITH GOOGLE
+    </Social>
+  </FacebookAndGoogleContainer>
+);
 
 const mapDispatchToProps = dispatch => ({
   googleSignInStart: () => dispatch(googleSignInStart()),

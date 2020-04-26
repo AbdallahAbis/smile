@@ -40,12 +40,11 @@ export const OptionsContainer = styled.div`
     background: ${variables.white};
     color: ${variables.black};
     flex-direction: column;
-    padding-top: 30rem;
-    padding-bottom: 50rem;
+    padding-top: 50%;
+    padding-bottom: 70%;
     overflow: hidden;
     font-size: 2rem;
     transform: translate(-200%, 0);
-    opacity: 0;
     transition: transform 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &.true {

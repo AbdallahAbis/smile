@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import variables from "../../assets/styles/variables.scss";
-
+import device from "../../assets/styles/media";
 
 export const TableHeaderContainer = styled.div`
   display: grid;
@@ -11,6 +11,9 @@ export const TableHeaderContainer = styled.div`
   &:first-child {
     border-bottom: 1px solid ${variables.lightGrey};
   }
+  @media ${device.phone} {
+    grid-template-columns: 3fr 1.5fr repeat(2, 1fr);
+  }
 `;
 export const TableHeaderTitle = styled.h5`
   flex: 1;
@@ -18,5 +21,14 @@ export const TableHeaderTitle = styled.h5`
   padding-bottom: 1rem;
   &:nth-last-child(-n + 2) {
     flex: 0.5;
+  }
+
+  @media ${device.phone} {
+    &:first-child {
+      display: none;
+    }
+    &:nth-last-child(-n + 2) {
+      text-align: center;
+    }
   }
 `;

@@ -1,5 +1,9 @@
-import { takeLatest, all, call, put } from "redux-saga/effects";
+import { takeLatest, all, call, put, select } from "redux-saga/effects";
 import UserActionTypes from "./user.types";
+
+import { fetchCartItems } from "../cart/cart.actions";
+
+import { selectCurrentUser } from "./user.selectors";
 
 import {
   auth,
@@ -7,7 +11,8 @@ import {
   facebookProvider,
   createUserDocument,
   getCurrentUser,
-  addCartItemsToUserProfile
+  addCartItemsToUserProfile,
+  getCartItems
 } from "../../firebase/firebase.utils";
 
 import {
@@ -23,7 +28,6 @@ function* getSnapshotFromUserAuth(user, otherInfo) {
   try {
     const userRef = yield call(createUserDocument, user, otherInfo);
     const snapshot = yield userRef.get();
-    console.log(snapshot);
     yield put(signInSuccess({ id: snapshot.id, ...snapshot.data() }));
   } catch (err) {
     yield put(signInFailure(err.message));
@@ -34,6 +38,9 @@ export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
+    const currentUser = yield select(selectCurrentUser);
+    const cartItems = yield getCartItems(currentUser.id);
+    yield yield put(fetchCartItems(cartItems));
   } catch (err) {
     yield console.error(err.message);
   }
@@ -42,6 +49,9 @@ export function* signInWithFacebook() {
   try {
     const { user } = yield auth.signInWithPopup(facebookProvider);
     yield getSnapshotFromUserAuth(user);
+    const currentUser = yield select(selectCurrentUser);
+    const cartItems = yield getCartItems(currentUser.id);
+    yield yield put(fetchCartItems(cartItems));
   } catch (err) {
     yield console.error(err.message);
   }
@@ -50,8 +60,10 @@ export function* signInWithFacebook() {
 function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
-
     yield getSnapshotFromUserAuth(user);
+    const currentUser = yield select(selectCurrentUser);
+    const cartItems = yield getCartItems(currentUser.id);
+    yield yield put(fetchCartItems(cartItems));
   } catch (err) {
     yield console.error(err.message);
     yield put(signInFailure("Email or Password is incorrect!"));

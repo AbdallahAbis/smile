@@ -13,8 +13,8 @@ import {
   Button
 } from "./checkout-preview.styles";
 
-const CheckoutPreview = ({ items, temTotalPrice, clearItem }) => {
-  return items.map(item => (
+const CheckoutPreview = ({ items, temTotalPrice, clearItem }) =>
+  items.map(item => (
     <Container key={item.id}>
       <Image src={item.imageUrl} />
       <Name>{item.name}</Name>
@@ -25,7 +25,6 @@ const CheckoutPreview = ({ items, temTotalPrice, clearItem }) => {
       </Button>
     </Container>
   ));
-};
 
 const mapDispatchToProps = dispatch => ({
   clearItem: item => dispatch(clearItemFromCart(item))

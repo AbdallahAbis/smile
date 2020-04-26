@@ -21,7 +21,6 @@ export const createUserDocument = async (userAuth, additionalData) => {
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
-  console.log(snapShot);
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -43,7 +42,6 @@ export const addCartItemsToUserProfile = async (id, itemsToAdd) => {
   const userRef = firestore.doc(`users/${id}`);
   const snapShot = await userRef.get();
   const userData = snapShot.data();
-  console.log(itemsToAdd);
 
   await userRef.set({
     ...userData,
@@ -53,6 +51,7 @@ export const addCartItemsToUserProfile = async (id, itemsToAdd) => {
 
 export const getCartItems = async id => {
   const userRef = firestore.doc(`users/${id}`);
+
   const snapShot = await userRef.get();
   const userData = snapShot.data();
 

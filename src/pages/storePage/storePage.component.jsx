@@ -14,11 +14,11 @@ const StorePage = ({ newProducts, fetchCollectionsStart }) => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
   return (
-    <React.Fragment>
+    <>
       <HeroStore size="100vh" position="top" />
       <CategoriesSection />
       <ProductsOverview title="New Products" items={newProducts} />
-    </React.Fragment>
+    </>
   );
 };
 

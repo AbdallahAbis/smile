@@ -5,13 +5,11 @@ import GoogleAndFacebook from "../../components/googleAndFacebook/googleAndFaceb
 
 import { Container } from "./signupPage.styles";
 
-const SignUpPage = () => {
-  return (
-    <Container>
-      <SignUp />
-      <GoogleAndFacebook />
-    </Container>
-  );
-};
+const SignUpPage = () => (
+  <Container>
+    <SignUp />
+    <GoogleAndFacebook />
+  </Container>
+);
 
 export default SignUpPage;

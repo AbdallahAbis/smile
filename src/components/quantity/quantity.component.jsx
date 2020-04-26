@@ -6,13 +6,7 @@ import { addItem, removeItem } from "../../redux/cart/cart.actions";
 import { Container, Button, Number } from "./quantity.styles";
 
 const Quantity = ({ number, item, addItem, removeItem, ...props }) => {
-  console.log(item);
-
-  let classNames = "";
-
-  if (item.quantity === 1) {
-    classNames = "disabled";
-  }
+  const classNames = item.quantity === 1 ? "disabled" : "";
 
   return (
     <Container {...props}>

@@ -19,11 +19,10 @@ import {
 
 const SignUp = ({ signUpStart, ErrorMessage }) => {
   const { register, handleSubmit, errors, getValues } = useForm();
-
-  const OnSubmit = data => {
-    const { email, password, displayName } = data;
+  const OnSubmit = ({ email, password, displayName }) => {
     signUpStart(email, password, displayName);
   };
+
   return (
     <EmailAndPasswordContainer>
       <Paragraph>Sign up using your email and password!</Paragraph>

@@ -5,17 +5,13 @@ import { createStructuredSelector } from "reselect";
 import { toggleMenuHidden } from "../../redux/cart/cart.actions";
 import { selectToggleMenu } from "../../redux/cart/cart.selectors";
 
-import "./hamburger-menu.styles.scss";
-const Menu = ({ toggleMenu, isClosed }) => {
-  const changeValues = () => {
-    toggleMenu();
-  };
-  return (
-    <div onClick={changeValues} className={`container ${!isClosed}`}>
-      <div className="menu"></div>
-    </div>
-  );
-};
+import { Container, MenuBars } from "./hamburger-menu.styles";
+
+const Menu = ({ toggleMenu, isClosed }) => (
+  <Container onClick={toggleMenu} className={!isClosed}>
+    <MenuBars></MenuBars>
+  </Container>
+);
 
 const mapStateToProps = createStructuredSelector({
   isClosed: selectToggleMenu

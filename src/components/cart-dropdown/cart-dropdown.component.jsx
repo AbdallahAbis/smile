@@ -25,35 +25,33 @@ import {
   Empty
 } from "./cart-dropdown.styles";
 
-const CartDropdown = ({ cartItems, clearItem, toggleHidden, isHidden }) => {
-  return (
-    <Container className={!isHidden}>
-      <ItemsContainer>
-        {cartItems.length > 0 ? (
-          <React.Fragment>
-            {cartItems.map(item => (
-              <ItemContainer key={item.id}>
-                <Image src={item.imageUrl} alt={item.name} />
-                <Name>{item.name}</Name>
-                <Quantity>x {item.quantity}</Quantity>
-                <RemoveIcon
-                  onClick={() => clearItem(item)}
-                  src="https://img.icons8.com/flat_round/64/000000/delete-sign.png"
-                />
-                <Price>${item.quantity * item.price}</Price>
-              </ItemContainer>
-            ))}
-          </React.Fragment>
-        ) : (
-          <Empty>Your cart is empty!</Empty>
-        )}
-      </ItemsContainer>
-      <Button link="true" to="/checkout" onClick={toggleHidden}>
-        GO TO CHECKOUT
-      </Button>
-    </Container>
-  );
-};
+const CartDropdown = ({ cartItems, clearItem, toggleHidden, isHidden }) => (
+  <Container className={!isHidden}>
+    <ItemsContainer>
+      {cartItems.length > 0 ? (
+        <>
+          {cartItems.map(item => (
+            <ItemContainer key={item.id}>
+              <Image src={item.imageUrl} alt={item.name} />
+              <Name>{item.name}</Name>
+              <Quantity>x {item.quantity}</Quantity>
+              <RemoveIcon
+                onClick={() => clearItem(item)}
+                src="https://img.icons8.com/flat_round/64/000000/delete-sign.png"
+              />
+              <Price>${item.quantity * item.price}</Price>
+            </ItemContainer>
+          ))}
+        </>
+      ) : (
+        <Empty>Your cart is empty!</Empty>
+      )}
+    </ItemsContainer>
+    <Button link="true" to="/checkout" onClick={toggleHidden}>
+      GO TO CHECKOUT
+    </Button>
+  </Container>
+);
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,

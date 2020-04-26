@@ -3,8 +3,7 @@ import device from "../../assets/styles/media";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 
-export const Container = styled.div`
-`;
+export const Container = styled.div``;
 
 export const ButtonContainer = styled.div`
   text-align: center;
@@ -12,7 +11,6 @@ export const ButtonContainer = styled.div`
 
   @media ${device.phone} {
     margin: 5rem 0 0 0;
-    text-align: left;
     padding: 0 5rem;
   }
 `;

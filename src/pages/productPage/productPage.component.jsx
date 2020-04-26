@@ -23,13 +23,12 @@ import {
 
 const ProductPage = ({ featured, allProducts, location, match }) => {
   const item = allProducts.filter(product => product.id === match.params.id);
-  console.log(item);
   return (
     <Container>
       {item.length === 0 ? (
         <Redirect to="/not-found" />
       ) : (
-        <React.Fragment>
+        <>
           <SingleProductDetails item={item[0]} />
           <DescriptionContainer>
             <Title className="description">Description</Title>
@@ -61,7 +60,7 @@ const ProductPage = ({ featured, allProducts, location, match }) => {
               Check All Products
             </Button>
           </ButtonContainer>
-        </React.Fragment>
+        </>
       )}
     </Container>
   );

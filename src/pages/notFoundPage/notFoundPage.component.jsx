@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Container,
-  Title,
   SubTitle,
   Text,
   SVG,
@@ -11,7 +10,6 @@ import {
 
 const NotFoundPage = () => (
   <Container>
-    {/* <Title>404</Title> */}
     <SVG />
     <SubTitle>PAGE NOT FOUND</SubTitle>
     <Text>

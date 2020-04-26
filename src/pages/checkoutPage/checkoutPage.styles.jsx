@@ -6,9 +6,8 @@ import CustomButton from "../../components/custom-button/custom-button.component
 export const Container = styled.div`
   padding: 15rem 20rem 10rem 20rem;
   margin-bottom: 10rem;
-  // height: 100vh;
   @media ${device.phone} {
-    // height: 100vh;
+    height: 100vh;
     margin: 0;
     padding: 10rem 5rem;
   }
@@ -69,6 +68,7 @@ export const TotalContainer = styled.div`
 display: flex;
 justify-content:flex-end;
 align-items: center;
+margin-top: 5rem;
 margin-bottom: 2rem;
   }
 `;
