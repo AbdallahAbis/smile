@@ -3,8 +3,6 @@ import device from "../../assets/styles/media";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 
-export const Container = styled.div``;
-
 export const ButtonContainer = styled.div`
   text-align: center;
   padding: 0 10rem;

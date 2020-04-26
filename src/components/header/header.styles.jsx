@@ -17,7 +17,7 @@ export const Container = styled.div`
   z-index: 5000;
   padding: 0 10rem;
   //MediaQueries
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     height: 8rem;
     padding: 0 5rem;
     background: ${variables.white};
@@ -30,7 +30,7 @@ export const OptionsContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     position: absolute;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.55);
     top: 0;
@@ -40,8 +40,8 @@ export const OptionsContainer = styled.div`
     background: ${variables.white};
     color: ${variables.black};
     flex-direction: column;
-    padding-top: 50%;
-    padding-bottom: 70%;
+    padding-top: 30%;
+    padding-bottom: 50%;
     overflow: hidden;
     font-size: 2rem;
     transform: translate(-200%, 0);
@@ -52,6 +52,10 @@ export const OptionsContainer = styled.div`
       transform: none;
       opacity: 1;
     }
+  }
+  @media ${device.phone} {
+    padding-top: 50%;
+    padding-bottom: 70%;
   }
 `;
 export const Option = styled(NavLink)`

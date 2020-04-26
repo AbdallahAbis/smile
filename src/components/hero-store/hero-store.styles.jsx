@@ -3,6 +3,7 @@ import device from "../../assets/styles/media";
 import variables from "../../assets/styles/variables.scss";
 
 export const Container = styled.div`
+max: 100%;
 height: ${({ size }) => size};
 background-image: url(${({ background }) => background});
 background-repeat;
@@ -14,13 +15,12 @@ justify-content: center;
 padding: 0 10rem;
 margin-bottom: 5rem;
 
-@media ${device.phone}{
+@media ${device.tabPort}{
 background: ${variables.darkerWhite};
 clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0 100%);
 height: 100%;
-padding: 4rem 5rem;
+padding: 6rem 5rem;
 margin-bottom: 2rem;
-
 }
 `;
 export const Title = styled.h1`
@@ -30,7 +30,7 @@ export const Title = styled.h1`
   font-family: ${variables.viga};
   display: block;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 5rem;
   }
 `;
@@ -41,7 +41,7 @@ export const Text = styled.h3`
   color: ${variables.red};
   font-family: ${variables.montserrat};
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 2.5rem;
   }
 `;

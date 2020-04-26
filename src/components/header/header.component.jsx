@@ -37,6 +37,11 @@ const Header = ({
       ? "lightGrey"
       : "white";
 
+  const onSignOut = () => {
+    signOutStart(currentUser, cartItems);
+    toggleMenu();
+  };
+
   return (
     <>
       <Container color={color} background={background}>
@@ -56,11 +61,7 @@ const Header = ({
               Log in
             </Option>
           ) : (
-            <Option
-              exact
-              to="/"
-              onClick={() => signOutStart(currentUser, cartItems)}
-            >
+            <Option exact to="/" onClick={onSignOut}>
               Sign out
             </Option>
           )}

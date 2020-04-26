@@ -9,22 +9,21 @@ import ProductsOverview from "../../components/products-overview/products-overvi
 import HeroStore from "../../components/hero-store/hero-store.component";
 import CategoriesSection from "../../components/categories-section/categories-section.component";
 
-import { Container, ButtonContainer, Button } from "./homePage.styles";
+import { ButtonContainer, Button } from "./homePage.styles";
 
 const HomePage = ({ featured }) => (
-    <Container>
-      <HeroHomePage />
-      <ProductsOverview title="Featured Products" items={featured} />
-      <CategoriesSection />
-      <HeroStore size="90vh" position="center" />
-      <ButtonContainer>
-        <Button link="true" to="/store">
-          Check All Products
-        </Button>
-      </ButtonContainer>
-    </Container>
-  );
-
+  <>
+    <HeroHomePage />
+    <ProductsOverview title="Featured Products" items={featured} />
+    <CategoriesSection />
+    <HeroStore size="90vh" position="center" />
+    <ButtonContainer>
+      <Button link="true" to="/store">
+        Check All Products
+      </Button>
+    </ButtonContainer>
+  </>
+);
 
 const mapStateToProps = createStructuredSelector({
   featured: selectFeaturedProducts

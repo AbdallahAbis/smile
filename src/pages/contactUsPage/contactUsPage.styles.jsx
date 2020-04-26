@@ -13,7 +13,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     padding: 4rem 5rem 0 5rem;
     flex-direction: column;
     height: 100vh;
@@ -23,6 +23,9 @@ export const Container = styled.div`
 export const InputField = styled(Input)`
   margin-bottom: 3rem;
   width: 70%;
+  @media ${device.tabPort} {
+    width: 70%;
+  }
   @media ${device.phone} {
     width: 100%;
   }
@@ -35,7 +38,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 100%;
   }
 `;
@@ -49,8 +52,14 @@ export const DeveloperContainer = styled.div`
   border: 3px solid ${variables.lightGrey};
   border-radius: 5px;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin-top: 10rem;
+    width: 70%;
+    text-align: center;
+    margin-right: 100%;
+  }
+  @media ${device.phone} {
+    margin: auto;
   }
 `;
 export const SubTitle = styled.h2`

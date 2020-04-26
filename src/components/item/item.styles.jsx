@@ -17,7 +17,7 @@ export const ImageContainer = styled(Link)`
     opacity: 1;
   }
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     & ~ button {
       opacity: 1;
     }
@@ -35,7 +35,7 @@ export const TextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 1.9rem;
   }
 `;
@@ -58,7 +58,7 @@ export const Button = styled(CustomButton)`
     opacity: 1;
   }
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 1.5rem;
   }
 `;

@@ -12,22 +12,31 @@ export const EmailAndPasswordContainer = styled.div`
   flex-direction: column;
   width: 50%;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 100%;
     font-size: 2rem;
   }
 `;
 export const Paragraph = styled.p`
   margin-bottom: 10rem;
+  @media ${device.tabPort} {
+    margin-top: 10rem;
+  }
   @media ${device.phone} {
     margin-top: 10rem;
     margin-bottom: 5rem;
     align-self: center;
   }
 `;
+export const Form = styled.form`
+  width: 100%;
+`;
 export const InputField = styled(Input)`
   width: 70%;
 
+  @media ${device.tabPort} {
+    width: 70%;
+  }
   @media ${device.phone} {
     width: 100%;
   }

@@ -15,8 +15,8 @@ export const Background = styled.div`
   left: 0;
   z-index: -100;
 
-  @media ${device.phone}{
-    background: white;
+  @media ${device.tabPort}{
+    background: ${variables.darkerWhite};
   }
 `;
 export const Container = styled.div`
@@ -25,9 +25,16 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 10rem;
+  @media ${device.tabPort} {
+    margin-top: 10rem;
+    padding: 15rem 5rem;
+    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0 100%);
+    height: 100%;
+  }
   @media ${device.phone} {
     height: 80vh;
-    padding: 0 5rem;
+    margin-top: 3rem;
+    padding: 5rem 5rem;
   }
 `;
 export const Title = styled.h1`
@@ -36,10 +43,9 @@ export const Title = styled.h1`
   font-size: 6.5rem;
   letter-spacing: 3px;
   display: block;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     color: ${variables.black};
     font-size: 5rem;
-    margin-top: 15rem;
   }
 `;
 export const Slogan = styled.h3`
@@ -47,7 +53,7 @@ export const Slogan = styled.h3`
   font-weight: 300;
   color: ${variables.red};
   font-family: ${variables.montserrat};
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 4rem;
   }
 `;
@@ -60,7 +66,7 @@ export const Paragraph = styled.p`
   font-weight: 300;
   font-family: ${variables.montserrat};
   line-height: 1.5;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     color: ${variables.black};
     font-size: 2.5rem;
     width: 100%;

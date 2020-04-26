@@ -8,7 +8,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 export const Container = styled.div`
   margin: 15rem 10rem 10rem 10rem;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin: 0;
     padding: 15rem 5rem 5rem 5rem;
     display: flex;
@@ -21,7 +21,7 @@ export const Title = styled.h1`
 `;
 export const ButtonContainer = styled.div`
   text-align: center;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin: 10rem 0 5rem 0;
   }
 `;
@@ -36,7 +36,7 @@ export const Button = styled(CustomButton)`
 export const DescriptionContainer = styled.div`
   width: 80%;
   margin: 10rem auto;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 100%;
     font-size: 2rem;
   }

@@ -11,6 +11,7 @@ import FormError, { AsyncError } from "../../components/error/error.component";
 
 import {
   EmailAndPasswordContainer,
+  Form,
   Paragraph,
   InputField,
   Button,
@@ -28,7 +29,7 @@ const LogIn = ({ emailSignInStart, ErrorMessage }) => {
     <EmailAndPasswordContainer>
       <Paragraph>Log in using your email and password!</Paragraph>
       {ErrorMessage ? <AsyncError message={ErrorMessage} /> : null}
-      <form onSubmit={handleSubmit(OnSubmit)}>
+      <Form onSubmit={handleSubmit(OnSubmit)}>
         <InputField
           label="Email:"
           type="text"
@@ -58,7 +59,7 @@ const LogIn = ({ emailSignInStart, ErrorMessage }) => {
         />
         {errors.password && <FormError message={errors.password.message} />}
         <Button type="submit">LOG IN</Button>
-      </form>
+      </Form>
       <Question>
         You don't have an account? <Anchor to="/sign-up">Sign Up</Anchor>
       </Question>
