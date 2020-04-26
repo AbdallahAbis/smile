@@ -2,6 +2,9 @@
 
 html {
   font-size: 62.5%;
+  @media only screen and (max-width: 56.25em) {
+    font-size: 58.5%;
+  }
   @media only screen and (max-width: 37.5em) {
     font-size: 42.5%;
   }
@@ -10,4 +13,6 @@ html {
 body {
   font-size: 1.4rem;
   font-family: $montserratFont;
+  max-width: 112.5em;
+  margin: 0 auto;
 }

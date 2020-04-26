@@ -3,6 +3,8 @@ import { Link as ReactLink } from "react-router-dom";
 import variables from "../../assets/styles/variables.scss";
 import device from "../../assets/styles/media";
 
+import Logo from "../../components/logo/logo.component";
+
 const iconsContainer = css`
   grid-column: 2;
   justify-self: center;
@@ -39,7 +41,7 @@ export const Container = styled.div`
   background-color: ${variables.black};
   color: ${variables.white};
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     padding: 0 5rem;
   }
 `;
@@ -56,9 +58,10 @@ export const TopFooter = styled.div`
 export const BottomFooter = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem 0;
   @media ${device.phone} {
-    justify-content: center;
+    justify-content: space-between;
   }
 `;
 //Outer containers
@@ -94,9 +97,6 @@ export const LogoContainer = styled.div`
   grid-column: 1;
   grid-row: 2;
   align-self: end;
-  @media ${device.phone} {
-    display: none;
-  }
 `;
 
 //Icons
@@ -111,11 +111,13 @@ export const FollowIcons = styled.img`
 `;
 
 //Copy Rights
-export const Rights = styled.div`
+export const Rights = styled.p`
   font-family: ${variables.montserrat};
   grid-column: 3;
   grid-row: 2;
-  align-self: end;
   justify-self: end;
   font-size: 1.2rem;
+`;
+export const StyledLogo = styled(Logo)`
+  fill: ${variables.white};
 `;

@@ -11,6 +11,10 @@ export const Container = styled.div`
   grid-row-gap: 4rem;
   margin-top: 5rem;
   padding: 0 10rem;
+  @media ${device.tabPort} {
+    padding: 0 5rem;
+    grid-template-rows: repeat(2, 20rem);
+  }
   @media ${device.phone} {
     grid-template-columns: 1fr;
     grid-gap: 3rem;
@@ -22,7 +26,7 @@ export const ItemContainer = styled.div`
   position: relative;
   overflow: hidden;
 `;
-export const ImageContainer = styled.div``;
+
 export const Image = styled.img`
   width: 100%;
   overflow: hidden;

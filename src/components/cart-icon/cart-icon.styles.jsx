@@ -10,7 +10,7 @@ export const CartContainer = styled(Link)`
   position: relative;
   margin-left: 8rem;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     height: 4rem;
     width: 4rem;
     position: absolute;
@@ -32,7 +32,7 @@ export const AddedItems = styled.p`
   left: 50%;
   transform: translate(-50%, -30%);
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 2rem;
   }
 `;

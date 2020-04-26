@@ -68,20 +68,20 @@ export const getCurrentUser = () => {
 };
 
 // Adds Data To Firebase
-// const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-//   const collectionRef = firestore.collection(collectionKey);
+/*const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
 
-//   const batch = firestore.batch();
+  const batch = firestore.batch();
 
-//   objectsToAdd.forEach(obj => {
-//     const newDocRef = collectionRef.doc();
-//     const objItems = obj.items;
-//     objItems.forEach(item => (item.id = uuidv4()));
-//     batch.set(newDocRef, { ...obj, items: objItems });
-//   });
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc();
+    const objItems = obj.items;
+    objItems.forEach(item => (item.id = uuidv4()));
+    batch.set(newDocRef, { ...obj, items: objItems });
+  });
 
-//   return await batch.commit();
-// };
+  return await batch.commit();
+}; */
 
 export const convertCollectionsSnapshotToMap = collections => {
   const allProducts = () => {

@@ -1,7 +1,5 @@
 import React from "react";
 
-import Logo from "../../components/logo/logo.component";
-
 import visa from "../../assets/icons/payments/visa.svg";
 import express from "../../assets/icons/payments/express.svg";
 import mastercard from "../../assets/icons/payments/mastercard.svg";
@@ -23,7 +21,8 @@ import {
   Title,
   Link,
   LogoContainer,
-  Rights
+  Rights,
+  StyledLogo
 } from "./footer.styles";
 
 const Footer = () => (
@@ -82,7 +81,7 @@ const Footer = () => (
     </TopFooter>
     <BottomFooter>
       <LogoContainer>
-        <Logo color="white" />
+        <StyledLogo color="white" />
       </LogoContainer>
       <Rights>
         Designed & Developed by{" "}

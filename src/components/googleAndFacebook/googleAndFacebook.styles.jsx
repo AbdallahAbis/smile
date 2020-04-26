@@ -10,7 +10,7 @@ export const FacebookAndGoogleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 100%;
     font-size: 2rem;
     justify-self: center;
@@ -22,13 +22,17 @@ export const Social = styled(CustomButton)`
   width: 90%;
   background-color: ${({ type }) => variables[type]};
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
+    width: 70%;
     align-self: center;
+  }
+  @media ${device.phone} {
+    width: 90%;
   }
 `;
 export const Paragraph = styled.p`
   margin-bottom: 10rem;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin-bottom: 0;
     align-self: center;
   }

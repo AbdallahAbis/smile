@@ -12,6 +12,7 @@ import {
   toggleCartHidden
 } from "../../redux/cart/cart.actions";
 
+import Delete from "../../assets/cart/delete-sign.png";
 import {
   Container,
   ItemsContainer,
@@ -35,10 +36,7 @@ const CartDropdown = ({ cartItems, clearItem, toggleHidden, isHidden }) => (
               <Image src={item.imageUrl} alt={item.name} />
               <Name>{item.name}</Name>
               <Quantity>x {item.quantity}</Quantity>
-              <RemoveIcon
-                onClick={() => clearItem(item)}
-                src="https://img.icons8.com/flat_round/64/000000/delete-sign.png"
-              />
+              <RemoveIcon onClick={() => clearItem(item)} src={Delete} />
               <Price>${item.quantity * item.price}</Price>
             </ItemContainer>
           ))}

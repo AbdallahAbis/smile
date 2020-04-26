@@ -13,7 +13,7 @@ export const ProductHeroContainer = styled.div`
   grid-row-gap: 6rem;
   align-items: center;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 100%;
     font-size: 1.8rem;
   }
@@ -24,7 +24,7 @@ export const Title = styled.h1`
   grid-column: 1 / -1;
 `;
 export const AllDetailsContainer = styled.div`
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     grid-column: 1 / -1;
     grid-row: 3;
   }
@@ -32,7 +32,7 @@ export const AllDetailsContainer = styled.div`
 export const DetailsInTextContainer = styled.div`
   margin-bottom: 4rem;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin-bottom: 10rem;
     font-size: 2rem;
   }
@@ -55,7 +55,7 @@ export const ImagesContainer = styled.div`
     border: 1px solid ${variables.red};
   }
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     grid-column: 1 / -1;
     grid-row: 2;
     justify-self: center;
@@ -82,7 +82,7 @@ export const TotalContainer = styled.div`
   margin: 4rem 0;
   margin-bottom: 6rem;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     margin: 8rem 0;
     justify-content: center;
   }
@@ -99,7 +99,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     flex-direction: column;
     align-items: center;
   }
@@ -108,17 +108,20 @@ export const Button = styled(CustomButton)`
   font-family: ${variables.montserrat};
   padding: 1rem 2rem;
 
-  @media ${device.phone} {
-    width: 90%;
+  @media ${device.tabPort} {
+    width: 50%;
     align-self: center;
     &:not(:last-child) {
       margin-bottom: 2rem;
     }
   }
+  @media ${device.phone} {
+    width: 90%;
+  }
 `;
 
 export const ProductQuantity = styled(Quantity)`
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     width: 20%;
     font-size: 2rem;
     margin: 0 auto;

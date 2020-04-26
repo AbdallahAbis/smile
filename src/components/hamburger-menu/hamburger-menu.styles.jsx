@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import device from "../../assets/styles/media";
 
 export const Container = styled.div`
   display: none;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  @media only screen and (max-width: 37.5em) {
+  @media ${device.tabPort} {
     display: flex;
   }
 `;

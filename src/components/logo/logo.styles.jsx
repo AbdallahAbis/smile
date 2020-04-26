@@ -5,7 +5,7 @@ import device from "../../assets/styles/media";
 import { ReactComponent as LogoSVGFile } from "../../assets/logo/logo.svg";
 
 const phoneHeight = css`
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     height: 3rem;
     fill: black;
   }

@@ -5,6 +5,8 @@ import device from "../../assets/styles/media";
 import CustomButton from "../custom-button/custom-button.component";
 
 export const Container = styled.div`
+  max-width: 300px;
+  max-height: 600px;
   width: 20vw;
   height: 45rem;
   border: 1px solid black;
@@ -26,8 +28,8 @@ export const Container = styled.div`
     opacity: 1;
   }
 
-  @media ${device.phone} {
-    width: 70vw;
+  @media ${device.tabPort} {
+    width: 50vw;
     height: 75rem;
     font-size: 2.3rem;
     left: 50%;
@@ -36,6 +38,9 @@ export const Container = styled.div`
       transform: translateX(-50%);
       opacity: 1;
     }
+  }
+  @media ${device.phone} {
+    width: 70vw;
   }
 `;
 export const ItemsContainer = styled.div`
@@ -56,7 +61,7 @@ export const ItemsContainer = styled.div`
     border-radius: 4px;
   }
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     max-height: 62rem;
   }
 `;
@@ -107,7 +112,7 @@ export const RemoveIcon = styled.img`
   justify-self: end;
   margin-top: 1rem;
   cursor: pointer;
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     height: 3rem;
   }
 `;
@@ -132,7 +137,7 @@ export const Button = styled(CustomButton)`
   padding: 1.3rem 1.7rem;
   font-family: ${variables.montserrat};
 
-  @media ${device.phone} {
+  @media ${device.tabPort} {
     font-size: 2.5rem;
   }
 `;
