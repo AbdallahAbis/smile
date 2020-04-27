@@ -10,6 +10,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import CheckoutTable from "../../components/checkout-table/checkout-table.component";
 import CheckoutPreview from "../../components/checkout-preview/checkout-preview.component";
+import StripeButton from "../../components/stripe-button/stripe-button.component";
 
 import {
   Container,
@@ -17,7 +18,6 @@ import {
   TotalAndPayContainer,
   TotalText,
   TotalNumber,
-  PayButton,
   Empty
 } from "./checkoutPage.styles";
 
@@ -41,14 +41,7 @@ const CheckoutPage = ({ cartItems, totalPrice, CurrentUser }) => {
             <TotalText>TOTAL</TotalText>
             <TotalNumber>${totalPrice}</TotalNumber>
           </TotalContainer>
-
-          {CurrentUser ? (
-            <PayButton className={classNames}>PAY NOW</PayButton>
-          ) : (
-            <PayButton link className={classNames} to="/sign-up">
-              PAY NOW
-            </PayButton>
-          )}
+          <StripeButton classNames={classNames} />
         </TotalAndPayContainer>
       </Container>
     </>
