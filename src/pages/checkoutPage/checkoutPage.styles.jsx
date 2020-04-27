@@ -84,16 +84,7 @@ font-size: 2rem;
 margin-left: 2rem;
   }
 `;
-export const PayButton = styled(CustomButton)`
-padding: 1rem 3.5rem;
-display: inline-block;
-margin-left: auto;
-&.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  }
-`;
+
 export const Empty = styled.p`
 font-family: ${variables.viga};
 font-size: 2rem;
